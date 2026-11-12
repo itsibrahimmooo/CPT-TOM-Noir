@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:po
 .hero-picture img{object-position:65% 20%}
 .is-ar .hero-name{font-size:clamp(28px,18px + 2.8vw,60px);font-family:'Barlow Condensed',Impact,sans-serif}
 .is-ar .hero-slogan{font:normal 900 clamp(36px,22px + 4.2vw,80px)/1.15 Alexandria,Arial,sans-serif;letter-spacing:0;max-width:640px;direction:rtl;text-align:left;unicode-bidi:isolate}
-.is-ar .hero-slogan .ar-line{display:block}
+.is-ar .hero-slogan .ar-line{display:block;white-space:nowrap}
 .brand,.desktop-nav a{min-height:44px;display:inline-flex;align-items:center}.desktop-nav a{min-width:44px;justify-content:center}.nav-join{min-height:44px}
 /* Keep the feature visuals above their cards, not clipped within them. */
 .feature-image{width:clamp(124px,11vw,176px);margin-top:-49px}
@@ -78,6 +78,7 @@ a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:po
   .plan-card{flex:0 0 var(--card-size)}
 }
 @media(min-width:600px){
+ .hero-slogan{white-space:nowrap}
  .hero-slogan .mobile-break{display:inline}
  .hero-slogan .mobile-break+.mobile-break:before{content:' '}
 }
@@ -95,7 +96,8 @@ a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:po
  .hero{min-height:clamp(620px,32vw,820px)}
  .hero-line.hero-name{font-size:clamp(72px,3.75vw,96px)}
  .hero-line.hero-slogan{font-size:clamp(92px,4.8vw,124px)}
- .hero-text{max-width:640px;transform:translateX(clamp(180px,12vw,300px))}
+ .hero-text{max-width:640px;transform:translateX(clamp(120px,7vw,180px))}
+ .is-ar .hero-text{transform:translateX(clamp(180px,12vw,300px))}
  .tagline{font-size:19px}
  .hero-cta{width:300px;height:62px;font-size:17px}
  .hero-underline{width:150px;height:6px}
