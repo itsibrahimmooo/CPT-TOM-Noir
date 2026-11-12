@@ -133,3 +133,5 @@ body>*:not(#tom4):not(script){display:none!important}
 }
 @media(max-width:365px){#tom4 .t4-wrap{width:calc(100% - 18px)}#tom4 .t4-freq{min-width:67px}#tom4 .t4-hero-copy h1{font-size:32px}#tom4 .t4-social{padding:8px}#tom4 .t4-social-buttons a{width:31px}}
 @media(prefers-reduced-motion:reduce){#tom4 *,#tom4 *:before,#tom4 *:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* SVG icon definition sprite must not occupy the first 150px of the page. */
+#tom4 .t4-sprite{position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;pointer-events:none!important;opacity:0!important}
