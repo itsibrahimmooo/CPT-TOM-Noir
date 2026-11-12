@@ -135,3 +135,6 @@ body>*:not(#tom4):not(script){display:none!important}
 @media(prefers-reduced-motion:reduce){#tom4 *,#tom4 *:before,#tom4 *:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 /* SVG icon definition sprite must not occupy the first 150px of the page. */
 #tom4 .t4-sprite{position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;pointer-events:none!important;opacity:0!important}
+
+/* Desktop hero headline remains two lines; keep the CTA visible above features. */
+@media(min-width:721px){#tom4 .t4-hero-copy{max-width:750px;padding-top:44px}#tom4 .t4-hero-copy h1{font-size:clamp(52px,4.45vw,67px);max-width:710px}#tom4 .t4-tagline{margin:10px 0 13px}}
