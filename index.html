@@ -28,6 +28,7 @@ html[dir=rtl] .hero-content{padding:102px 72px 0 0}html[dir=rtl] .hero:after{bac
 
 </style>
   <title>CPT TOM | BUILD YOUR BODY</title>
+  <link rel="stylesheet" href="./compact.css?v=3" />
 </head>
 <body>
   <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -145,7 +146,7 @@ html[dir=rtl] .hero-content{padding:102px 72px 0 0}html[dir=rtl] .hero:after{bac
  * Set the coach's confirmed international WhatsApp number here, digits only, no +.
  * An empty number intentionally opens WhatsApp's recipient picker rather than guessing.
  */
-const CPT_CONFIG = Object.freeze({ whatsappNumber: '' });
+const CPT_CONFIG = Object.freeze({ whatsappNumber: '201028820336' });
 const MEMBERSHIPS = Object.freeze([
   { months: 1, options: { 3: { sessions: 12, original: 2100, price: 1260 }, 4: { sessions: 16, original: 2500, price: 1500 } } },
   { months: 2, options: { 3: { sessions: 24, original: 3400, price: 2040 }, 4: { sessions: 32, original: 4000, price: 2400 } } },
@@ -316,5 +317,6 @@ if (typeof document !== 'undefined') {
 if (typeof module !== 'undefined' && module.exports) module.exports = { MEMBERSHIPS, currentPlan, state, copy, whatsappUrl, planMessage };
 
 </script>
+  <script src="./enhancements.js?v=3" defer></script>
 </body>
 </html>
