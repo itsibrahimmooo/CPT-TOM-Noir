@@ -61,3 +61,5 @@ a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:po
 .feature-image{width:clamp(124px,11vw,176px);margin-top:-49px}
 .feature{padding-top:43px}
 @media(max-width:599px){.feature-image{width:130px;margin-top:-43px}.feature{padding-top:40px}.hero-picture{right:-60px}}
+/* Minimum 44px touch area, including logo and desktop links at tablet width. */
+.brand,.desktop-nav a,.nav-join{min-height:44px;display:inline-flex;align-items:center}
