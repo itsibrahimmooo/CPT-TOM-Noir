@@ -1212,7 +1212,7 @@ const $=(s,root=document)=>root.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const lang=()=>document.documentElement.lang==='ar'?'ar':'en';
 const words=()=>LABEL[lang()];
-const v={name:'',country:'eg',phone:'',heightCm:null,heightUnit:'cm',weightKg:null,weightUnit:'kg',goal:'',experience:'',place:'',age:'',gender:'',injuries:'',contactTime:'',consent:false,months:3,frequency:3};
+const v={name:'',country:'eg',otherDial:'',phone:'',heightCm:null,heightUnit:'cm',weightKg:null,weightUnit:'kg',goal:'',experience:'',place:'',age:'',gender:'',injuries:'',contactTime:'',consent:false,months:3,frequency:3};
 const validNumber=(x)=>Number.isFinite(Number(x))&&String(x).trim()!=='';
 let dialog,panel,form,success,openedAt=0,from=null,scrollSaved=0,overflowSaved='',gutterSaved='',file=null,waHref='',lastValidation={},internalUpdating=false,beginSwipe=null,viewW=0;
 function fromState(){v.months=state.months;v.frequency=state.frequency;}
@@ -1226,7 +1226,7 @@ function chips(name){const L=words();return `<div class="ct-sub-choice" role="gr
 function fieldHtml(f){const L=words(),id=f.id,title=esc(L[id]),err=`<div id="cts-err-${id}" class="ct-sub-error" aria-live="polite"></div>`;
  if(id==='consent')return `<label class="ct-sub-consent"><input id="cts-consent" type="checkbox" ${v.consent?'checked':''} required><span>${title}</span></label>${err}`;
  let html='';
- if(id==='phone')html=`<div class="ct-sub-inline"><select class="ct-sub-country" id="cts-country" aria-label="${esc(lang()==='ar'?'رمز الدولة':'Country code')}">${PHONE_COUNTRIES.map(c=>opt(v.country,c[0],c[1])).join('')}</select>${input('phone','tel','inputmode="tel" autocomplete="tel-national" placeholder="1028820336" required')}</div>`;
+ if(id==='phone')html=`<div class="ct-sub-inline"><select class="ct-sub-country" id="cts-country" aria-label="${esc(lang()==='ar'?'رمز الدولة':'Country code')}">${PHONE_COUNTRIES.map(c=>opt(v.country,c[0],c[1])).join('')}</select><input id="cts-otherDial" name="otherDial" type="tel" inputmode="numeric" aria-label="${esc(lang()==='ar'?'كود الدولة':'Calling code')}" placeholder="+44" maxlength="5" style="width:70px;flex:0 0 70px" ${v.country==='other'?'':'hidden'}>${input('phone','tel','inputmode="tel" autocomplete="tel-national" placeholder="1028820336" required')}</div>`;
  else if(id==='height')html=`<div class="ct-sub-inline"><div class="ct-sub-metric" id="cts-height-wrap">${input('height','number','min="120" max="230" step=".1" inputmode="decimal" required')}</div><div class="ct-sub-unit" role="group" aria-label="${esc(title)}"><button type="button" data-unit="height" data-set="cm" aria-pressed="${v.heightUnit==='cm'}">cm</button><button type="button" data-unit="height" data-set="ft" aria-pressed="${v.heightUnit==='ft'}">ft-in</button></div></div>`;
  else if(id==='weight')html=`<div class="ct-sub-inline"><div class="ct-sub-metric" id="cts-weight-wrap">${input('weight','number','min="30" max="250" step=".1" inputmode="decimal" required')}</div><div class="ct-sub-unit" role="group" aria-label="${esc(title)}"><button type="button" data-unit="weight" data-set="kg" aria-pressed="${v.weightUnit==='kg'}">kg</button><button type="button" data-unit="weight" data-set="lb" aria-pressed="${v.weightUnit==='lb'}">lb</button></div></div>`;
  else if(f.type==='chips')html=chips(id);
@@ -1250,14 +1250,14 @@ function renderMeasurements(){const hw=$('#cts-height-wrap',dialog),ww=$('#cts-w
 }
 function syncPlan(){if(!dialog)return;$('#ct-sub-summary-text',dialog).textContent=planSummary();$('#ct-sub-months',dialog).value=v.months;$('#ct-sub-frequency',dialog).value=v.frequency;}
 function saveCurrent(){if(!dialog)return;
- const q=id=>$('#cts-'+id,dialog);const nm=q('name');if(nm)v.name=nm.value;const ph=q('phone');if(ph)v.phone=ph.value;const ct=q('country');if(ct)v.country=ct.value;
+ const q=id=>$('#cts-'+id,dialog);const nm=q('name');if(nm)v.name=nm.value;const ph=q('phone');if(ph)v.phone=ph.value;const ct=q('country');if(ct)v.country=ct.value;const dial=q('otherDial');if(dial)v.otherDial=dial.value;
  if(v.heightUnit==='cm'){const h=q('height');if(h?.value)v.heightCm=Number(h.value);}else{const ft=q('feet'),ins=q('inches');if(ft?.value&&ins?.value!=='')v.heightCm=Number(ft.value)*30.48+Number(ins.value)*2.54;}
  const wt=q('weight');if(wt?.value)v.weightKg=v.weightUnit==='kg'?Number(wt.value):Number(wt.value)/2.2046226218;
  for(const id of ['age','injuries'])if(q(id))v[id]=q(id).value;
  v.consent=!!q('consent')?.checked;saveDraft();
 }
-function restoreInputs(){for(const id of ['name','phone','age','injuries']){const el=$('#cts-'+id,dialog);if(el)el.value=v[id]||'';}renderMeasurements();}
-function e164(){const c=PHONE_COUNTRIES.find(x=>x[0]===v.country);let x=v.phone.replace(/[^0-9]/g,'');if(c?.[2]&&x.startsWith(c[2])&&x.length>(v.country==='eg'?10:9))x=x.slice(c[2].length);if(x[0]==='0')x=x.slice(1);if(v.country==='eg')return /^1[0125][0-9]{8}$/.test(x)?'+20'+x:null;if(v.country==='sa')return /^5[0-9]{8}$/.test(x)?'+966'+x:null;return c?.[2]&&/^[0-9]{6,12}$/.test(x)?'+'+c[2]+x:null;}
+function restoreInputs(){for(const id of ['name','phone','age','injuries']){const el=$('#cts-'+id,dialog);if(el)el.value=v[id]||'';}const dial=$('#cts-otherDial',dialog);if(dial){dial.value=v.otherDial||'';dial.hidden=v.country!=='other';}renderMeasurements();}
+function e164(){const c=PHONE_COUNTRIES.find(x=>x[0]===v.country);let x=v.phone.replace(/[^0-9]/g,'');if(c?.[2]&&x.startsWith(c[2])&&x.length>(v.country==='eg'?10:9))x=x.slice(c[2].length);if(x[0]==='0')x=x.slice(1);if(v.country==='other'){const dial=v.otherDial.replace(/[^0-9]/g,'');return /^[1-9][0-9]{0,3}$/.test(dial)&&/^[0-9]{6,12}$/.test(x)?'+'+dial+x:null;}if(v.country==='eg')return /^1[0125][0-9]{8}$/.test(x)?'+20'+x:null;if(v.country==='sa')return /^5[0-9]{8}$/.test(x)?'+966'+x:null;return c?.[2]&&/^[0-9]{6,12}$/.test(x)?'+'+c[2]+x:null;}
 function errorFor(id){if(id==='name')return v.name.trim().length>=2&&v.name.trim().length<=80?'':'nameError';if(id==='phone')return e164()?'':'phoneError';if(id==='height')return v.heightCm>=120&&v.heightCm<=230?'':'heightError';if(id==='weight')return v.weightKg>=30&&v.weightKg<=250?'':'weightError';if(id==='consent')return v.consent?'':'consentError';if(id==='inbody'&&file&&(!file.valid||file.size>10*1024*1024))return 'fileError';return '';}
 function markError(id){const place=$('#cts-err-'+id,dialog);if(!place)return true;const code=errorFor(id);place.textContent=code?words()[code]:'';const field=$('#cts-'+id,dialog);if(field)field.setAttribute('aria-invalid',String(!!code));return !code;}
 function checkForm(){saveCurrent();let first=null;for(const f of FIELD_CONFIG)if(f.required||f.id==='inbody'){if(!markError(f.id)&&!first)first=f.id;}return first;}
@@ -1294,7 +1294,7 @@ function formClick(e){const u=e.target.closest('[data-unit]');if(u){saveCurrent(
  if(e.target.closest('#ct-sub-share')&&file){if(navigator.canShare?.({files:[file.original]})){navigator.share({files:[file.original],title:'InBody PDF'}).catch(()=>{});}return;}
 }
 function formChange(e){if(e.target.id==='ct-sub-months'||e.target.id==='ct-sub-frequency'){setPlan(Number($('#ct-sub-months',dialog).value),Number($('#ct-sub-frequency',dialog).value));return;}
- saveCurrent();const id=e.target.id?.replace(/^cts-/,'');if(id)markError(id);}
+ saveCurrent();if(e.target.id==='cts-country'){const dial=$('#cts-otherDial',dialog);if(dial){dial.hidden=v.country!=='other';if(!dial.hidden)dial.focus({preventScroll:true});}}const id=e.target.id?.replace(/^cts-/,'');if(id)markError(id);}
 function relocalize(){if(!dialog?.open)return;saveCurrent();const active=document.activeElement?.id;const wasOpen=$('.ct-sub-extra',dialog)?.open;
  panel.outerHTML=getMarkup();panel=$('.ct-sub-panel',dialog);form=$('#ct-sub-form',dialog);success=$('#ct-sub-success',dialog);dialog.classList.toggle('is-ar',lang()==='ar');
  restoreInputs();syncPlan();updateFile();if(wasOpen)$('.ct-sub-extra',dialog).open=true;if(active)safeFocus($('#'+active,dialog));setViewport();}
