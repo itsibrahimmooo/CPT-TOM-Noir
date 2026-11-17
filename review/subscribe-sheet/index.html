@@ -328,6 +328,9 @@ html:lang(ar) .ct-results__fallback [lang=en], html:not(:lang(ar)) .ct-results__
 .ct-sub-dialog.is-ar .ct-sub-field label,.ct-sub-dialog.is-ar .ct-sub-extra summary,.ct-sub-dialog.is-ar .ct-sub-consent{direction:rtl;text-align:right}
 #ct-sub-title:focus{outline:none}
 @media(max-width:599px){.ct-sub-form{grid-template-columns:1fr}.ct-sub-field,.ct-sub-field.ct-sub-wide,.ct-sub-extra,.ct-sub-consent,.ct-sub-submit{grid-column:1/-1}.ct-sub-country{flex:0 0 112px;width:112px!important}.ct-sub-field .ct-sub-metric input{min-width:50px}}
+.ct-sub-dialog [hidden]{display:none!important}
+.ct-sub-metric{display:flex;flex:1;min-width:0}
+.ct-sub-metric input{flex:1;min-width:0!important;width:100%!important}
 
 </style>
 </head>
