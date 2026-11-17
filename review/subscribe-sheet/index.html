@@ -2,13 +2,13 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="theme-color" content="#0A0D12">
 <meta name="description" content="CPT TOM | Personal training and coaching memberships. Choose your plan and contact Coach Tom on WhatsApp.">
 <meta property="og:title" content="CPT TOM | BUILD YOUR BODY">
 <meta property="og:type" content="website">
 <meta property="og:description" content="CPT TOM personal training and coaching. Explore training plans and contact the coach on WhatsApp.">
-<meta property="og:url" content="https://cpt-tom-cinema-dust-test.vercel.app/">
+<meta property="og:url" content="https://cpt-tom-subscribe-sheet-test-toro-8ab7.vercel.app/">
 <meta property="og:image" content="https://cpt-tom-subscribe-sheet-test-toro-8ab7.vercel.app/assets/cpt-tom-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -265,72 +265,102 @@ html:lang(ar) .ct-results__fallback [lang=en], html:not(:lang(ar)) .ct-results__
 @media(min-width:600px) and (max-width:899px){.hero-slogan .mobile-break+.mobile-break:before{content:none!important}}
 </style>
 <style id="ct-subscribe-styles">
-/* CPT TOM subscription sheet. Scoped, no changes to global site components. */
-.ct-sub-dialog:not([open]){display:none!important}
-.ct-sub-dialog{position:fixed;inset:0;margin:auto;padding:0;border:0;max-width:none;max-height:none;width:100%;height:100%;background:transparent;color:#F5F5F7;z-index:4000;overflow:hidden;font-family:Inter,Arial,sans-serif}
-.ct-sub-dialog::backdrop{background:rgba(2,4,8,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.ct-sub-panel{position:absolute;left:50%;top:50%;width:min(560px,calc(100vw - 32px));height:auto;max-height:88dvh;overflow:auto;overscroll-behavior:contain;box-sizing:border-box;transform:translate(-50%,-50%);padding:clamp(16px,2.5vw,26px);border:1px solid rgba(231,191,115,.28);border-radius:22px;background:linear-gradient(145deg,#1c2129 0%,#101319 44%,#0b0e13 100%);box-shadow:0 18px 56px #000a,inset 0 1px rgba(255,255,255,.13);scrollbar-color:#66534b transparent}
-.ct-sub-panel::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,#d7ae63,transparent);pointer-events:none}
-.ct-sub-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
-.ct-sub-head h2{font:italic 900 clamp(26px,4vw,37px)/1.1 'Barlow Condensed',Impact,sans-serif;margin:0;color:#fff}
-.is-ar .ct-sub-head h2{font:800 24px/1.3 Alexandria,Arial,sans-serif}
-.ct-sub-close,.ct-sub-unit button,.ct-sub-choice button,.ct-sub-btn,.ct-sub-country,.ct-sub-file-remove,.ct-sub-done{min-width:44px;min-height:44px;cursor:pointer}
-.ct-sub-close{border:1px solid #666e78;border-radius:11px;background:#262b33;color:#fff;font-size:22px;line-height:1}
+/* CPT TOM subscribe sheet v2: scoped noir tokens, stable visual viewport */
+.ct-sub-dialog{--sheet-accent:var(--red);--sheet-vvh:100dvh;--sheet-vvtop:0px;--sheet-vvleft:0px;--sheet-vvw:100vw;
+ position:fixed;inset:auto;top:var(--sheet-vvtop);left:var(--sheet-vvleft);width:var(--sheet-vvw);height:var(--sheet-vvh);
+ margin:0;padding:0;border:0;max-width:none;max-height:none;background:transparent;color:var(--text);z-index:4000;overflow:hidden;font-family:Inter,Arial,sans-serif}
+.ct-sub-dialog:not([open]),.ct-sub-dialog [hidden]{display:none!important}
+.ct-sub-dialog::backdrop{background:rgba(7,9,13,.84);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ct-sub-panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,calc(100% - 24px));max-height:min(92%,760px);
+ display:flex;flex-direction:column;overflow:hidden;border-radius:20px;border:1px solid var(--border-strong);background:linear-gradient(145deg,var(--surface-2),var(--surface) 62%,var(--bg));
+ box-shadow:0 24px 58px #000b,inset 0 1px rgba(255,255,255,.08);isolation:isolate;overscroll-behavior:contain}
+.ct-sub-panel::before{content:"";position:absolute;inset:0 0 auto;height:2px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--sheet-accent),transparent)}
+.ct-sub-head{min-height:55px;flex:0 0 auto;padding:7px 13px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--border)}
+.ct-sub-head h2{min-width:0;font:italic 900 clamp(22px,3vw,30px)/1.15 'Barlow Condensed',Impact,sans-serif;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.is-ar .ct-sub-head h2{font:800 clamp(17px,2.6vw,21px)/1.35 Alexandria,Arial,sans-serif}
+.ct-sub-close{width:44px;height:44px;min-width:44px;flex:none;border:1px solid var(--border-strong);border-radius:12px;background:var(--surface-2);color:var(--text);font-size:22px;cursor:pointer}
 .ct-sub-handle{display:none}
-.ct-sub-summary{border:1px solid rgba(215,174,99,.35);background:linear-gradient(100deg,#242320,#181b21);border-radius:13px;padding:12px 14px;margin:2px 0 14px;color:#f4e7d1;font-weight:700;font-size:14px;line-height:1.6}
-.ct-sub-form{display:grid;grid-template-columns:1fr 1fr;gap:12px 13px}
-.ct-sub-field{display:flex;flex-direction:column;min-width:0;gap:5px}
-.ct-sub-field.ct-sub-wide,.ct-sub-extra,.ct-sub-consent,.ct-sub-submit{grid-column:1/-1}
-.ct-sub-field label,.ct-sub-label{font-weight:700;font-size:13px;line-height:1.5;color:#e4e5eb}
-.ct-sub-field input,.ct-sub-field select,.ct-sub-field textarea,.ct-sub-input{display:block;width:100%;min-height:44px;border:1px solid #414953;border-radius:10px;padding:9px 11px;background:#121820;color:#fff;font:500 15px/1.4 Inter,Arial,sans-serif;outline:none;box-sizing:border-box}
-.ct-sub-field input:focus,.ct-sub-field select:focus,.ct-sub-field textarea:focus{border-color:#dfb777;box-shadow:0 0 0 2px #b78b4a44}
-.ct-sub-field textarea{min-height:58px;max-height:100px;resize:vertical}
-.ct-sub-field [dir="rtl"],.ct-sub-dialog.is-ar .ct-sub-field input[autocomplete="name"]{font-family:Alexandria,Arial,sans-serif}
-.ct-sub-inline{display:flex;align-items:center;gap:7px;min-width:0}
-.ct-sub-inline>input{flex:1;min-width:0}
-.ct-sub-country{flex:0 0 103px;width:103px!important;padding-inline:5px!important;font-size:13px!important}
-.ct-sub-unit{display:flex;gap:3px;padding:3px;border-radius:12px;border:1px solid rgba(215,174,99,.33);background:#141a20;align-self:flex-start}
-.ct-sub-unit button{min-height:36px;min-width:44px;border:0;border-radius:9px;color:#e5ded4;background:transparent;font-size:12px;font-weight:800;padding:7px 8px}
-.ct-sub-unit button[aria-pressed="true"]{background:linear-gradient(145deg,#f1d29a,#a67532);color:#14171e}
-.ct-sub-field .ct-sub-metric{display:flex;gap:6px}
-.ct-sub-metric input{flex:1;width:40px;min-width:0}
-.ct-sub-error{color:#ff9f9f;font:500 12px/1.5 Alexandria,Inter,Arial,sans-serif;min-height:0}
+.ct-sub-summary{display:flex;align-items:center;gap:7px;min-height:45px;flex:0 0 auto;padding:5px 13px;border-bottom:1px solid var(--border);font-size:12px;line-height:1.5}
+.ct-sub-summary-text{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:750;direction:ltr;text-align:left;font-variant-numeric:tabular-nums}
+.ct-sub-dialog.is-ar .ct-sub-summary-text{direction:rtl;text-align:right}
+.ct-sub-change-plan{min-width:44px;min-height:44px;padding:0 7px;background:transparent;border:0;color:var(--text-2);text-decoration:underline;text-decoration-color:var(--sheet-accent);font:700 12px Inter,Alexandria,Arial,sans-serif;cursor:pointer}
+.ct-sub-form{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+.ct-sub-body{display:grid;align-content:start;grid-template-columns:1fr 1fr;gap:6px 10px;padding:10px 13px;overflow-x:hidden;overflow-y:auto;flex:1;min-height:0;scrollbar-color:var(--border-strong) transparent;overscroll-behavior:contain}
+.ct-sub-field{display:flex;flex-direction:column;min-width:0;gap:2px}
+.ct-sub-field[data-field="goal"],.ct-sub-field[data-field="experience"],.ct-sub-field[data-field="place"],.ct-sub-field[data-field="inbody"],.ct-sub-extra,.ct-sub-consent{grid-column:1/-1}
+.ct-sub-field label{color:var(--text-2);font-size:12px;line-height:1.35;font-weight:700}
+.ct-sub-field input,.ct-sub-field select,.ct-sub-field textarea,.ct-sub-input{display:block;width:100%;height:44px;min-height:44px;min-width:0;border:1px solid var(--border-strong);border-radius:9px;background:var(--bg-2);color:var(--text);font:500 16px/1.35 Inter,Alexandria,Arial,sans-serif;padding:7px 9px;outline:0;box-sizing:border-box}
+.ct-sub-field input:focus,.ct-sub-field select:focus,.ct-sub-field textarea:focus{border-color:var(--sheet-accent);box-shadow:0 0 0 2px var(--red-glow)}
+.ct-sub-field textarea{min-height:55px;height:55px;resize:vertical}
+.ct-sub-field input[aria-invalid="true"],.ct-sub-field select[aria-invalid="true"]{border-color:var(--red-hot)}
+.ct-sub-inline,.ct-sub-metric{display:flex;align-items:center;gap:4px;min-width:0}
+.ct-sub-inline>input,.ct-sub-metric{flex:1;min-width:0}
+.ct-sub-country{flex:0 0 105px;width:105px!important;padding-inline:4px!important;font-size:16px!important}
+.ct-sub-field [id="cts-otherDial"]{min-width:58px!important;flex:0 0 58px!important;width:58px!important;padding:5px!important}
+.ct-sub-metric input{flex:1;min-width:0!important;width:100%!important;padding:5px!important}
+.ct-sub-unit{display:flex;flex:0 0 auto;gap:2px;padding:2px;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg-2)}
+.ct-sub-unit button{min-width:44px;min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--text-2);font:800 12px/1 Inter,Arial,sans-serif;cursor:pointer;padding:5px 4px}
+.ct-sub-unit button[aria-pressed="true"]{background:var(--sheet-accent);color:#fff}
+.ct-sub-error{min-height:0;font:500 12px/1.3 Alexandria,Inter,Arial,sans-serif;color:#ff969e}
 .ct-sub-error:empty{display:none}
-.ct-sub-choice{display:flex;flex-wrap:wrap;gap:6px}
-.ct-sub-choice button{font:600 12px/1.5 Alexandria,Inter,Arial,sans-serif;border:1px solid #3b454d;border-radius:12px;background:#18202a;color:#dedfe3;padding:7px 9px;flex:1 0 auto}
-.ct-sub-choice button[aria-pressed="true"]{border-color:#e4bf7e;color:#ffe7b3;background:#4a3925}
-.ct-sub-file{position:relative;border:1px dashed #858071;background:#171c24;border-radius:12px;padding:12px;text-align:center;min-height:46px;display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;font-size:13px;color:#e3e0d8}
-.ct-sub-file input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:1}
-.ct-sub-file:focus-within{outline:2px solid #e1ba7e}
-.ct-sub-file-remove{border:1px solid #7e6b57;color:#fff;background:#282326;border-radius:8px;z-index:2;padding:6px}
-.ct-sub-extra{border-top:1px solid #333944;padding-top:12px}
-.ct-sub-extra summary{min-height:44px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;color:#e4c594}
-.ct-sub-extra-body{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 0}
-.ct-sub-consent{display:flex;align-items:flex-start;gap:12px;font-size:13px;line-height:1.7}
-.ct-sub-consent input{width:23px;height:23px;flex:none;accent-color:#bf9855}
-.ct-sub-submit,.ct-sub-btn,.ct-sub-done{background:linear-gradient(120deg,#eacb8f,#ae7529);color:#101318;border:1px solid #e3c58e;border-radius:13px;font:bold 15px/1.4 Alexandria,Inter,Arial,sans-serif;padding:12px 16px;box-shadow:0 8px 20px #b78b4a2b}
-.ct-sub-submit[disabled]{opacity:.7;cursor:progress}
-.ct-sub-tip{color:#b5b5bc;font-size:12px;text-align:center;grid-column:1/-1;line-height:1.6}
+.ct-sub-select-compact{display:flex;align-items:center;gap:8px;min-width:0}
+.ct-sub-select-compact label{width:100px;max-width:32%;flex:0 0 100px}
+.ct-sub-select-compact select{flex:1;min-width:0;min-height:44px}
+.ct-sub-choice{display:flex;gap:4px;flex-wrap:nowrap;min-width:0;overflow-x:auto;scrollbar-width:none}
+.ct-sub-choice button{min-width:44px;min-height:44px;flex:1 0 auto;border-radius:9px;border:1px solid var(--border-strong);padding:6px 8px;background:var(--bg-2);color:var(--text-2);font:700 12px/1.35 Alexandria,Inter,Arial,sans-serif;cursor:pointer}
+.ct-sub-choice button[aria-pressed="true"]{border-color:var(--sheet-accent);color:#fff;background:var(--red-deep)}
+.ct-sub-file{min-height:44px;display:flex;align-items:center;justify-content:center;position:relative;border:1px dashed var(--border-strong);border-radius:9px;background:var(--bg-2);font-size:12px;color:var(--text-2);gap:7px;overflow:hidden;padding:3px 10px}
+.ct-sub-file input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:1;width:100%;height:100%;min-height:44px}
+.ct-sub-file-remove{position:relative;z-index:2;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text);border-radius:8px;min-height:44px;min-width:44px;cursor:pointer}
+.ct-sub-extra{min-height:44px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ct-sub-extra summary{display:flex;align-items:center;min-height:44px;font-size:12px;font-weight:700;color:var(--text-2);cursor:pointer}
+.ct-sub-extra-body{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px 0}
+.ct-sub-consent{display:flex;align-items:center;gap:7px;font-size:12px;line-height:1.4;min-height:44px}
+.ct-sub-consent input[type="checkbox"]{width:24px;height:24px;min-height:24px;flex:none;accent-color:var(--sheet-accent)}
+.ct-sub-footer{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;padding:7px 13px max(9px,env(safe-area-inset-bottom));border-top:1px solid var(--border);background:var(--surface)}
+.ct-sub-footer-buttons{display:flex;gap:8px}
+.ct-sub-submit,.ct-sub-next,.ct-sub-back,.ct-sub-btn,.ct-sub-done{min-height:48px;flex:1;min-width:44px;border:1px solid var(--red-hot);background:linear-gradient(180deg,var(--red-hot),var(--red) 65%,var(--red-deep));border-radius:10px;color:var(--text);font:800 15px/1.2 Alexandria,Inter,Arial,sans-serif;cursor:pointer;padding:10px 12px;box-shadow:0 5px 17px rgba(196,18,31,.28)}
+.ct-sub-next,.ct-sub-back{background:var(--surface-2);border:1px solid var(--border-strong)}
+.ct-sub-back{flex:0 0 92px}
+.ct-sub-submit[disabled]{opacity:.65;cursor:progress}
+.ct-sub-tip{text-align:center;color:var(--text-3);font-size:12px;line-height:1.25}
+.ct-sub-progress{display:none;color:var(--text-3);font-size:12px;line-height:1.1;text-align:center}
 .ct-sub-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
-.ct-sub-success{text-align:center;display:grid;gap:15px;padding:20px 0}
-.ct-sub-success[hidden],.ct-sub-form[hidden]{display:none!important}
-.ct-sub-success-mark{display:grid;place-items:center;margin:auto;border:2px solid #ddb87e;border-radius:50%;width:66px;height:66px;color:#e9cc99;font-size:37px;animation:ct-sub-pop .35s ease-out both}
-@keyframes ct-sub-pop{from{opacity:.4;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
-.ct-sub-actions{display:grid;gap:9px}
-.ct-sub-actions a{display:grid;place-items:center;text-decoration:none}
-.ct-sub-dialog button:focus-visible,.ct-sub-dialog a:focus-visible,.ct-sub-dialog input:focus-visible,.ct-sub-dialog select:focus-visible,.ct-sub-dialog summary:focus-visible{outline:3px solid #f0d19c;outline-offset:2px}
-@media(max-width:767px){.ct-sub-panel{top:auto;left:0;bottom:0;width:100%;height:auto;max-height:min(92dvh,calc(100dvh - env(safe-area-inset-top) - 8px));transform:none;border-radius:24px 24px 0 0;padding:12px 16px max(18px,env(safe-area-inset-bottom))}.ct-sub-handle{display:block;margin:0 auto 10px;width:56px;height:5px;border-radius:7px;background:#818085;touch-action:pan-y}.ct-sub-form{gap:10px}.ct-sub-field label{font-size:12px}.ct-sub-country{flex-basis:86px;width:86px!important}.ct-sub-extra-body{grid-template-columns:1fr}}
-@media(max-width:360px){.ct-sub-form{grid-template-columns:1fr}.ct-sub-field.ct-sub-wide{grid-column:1}.ct-sub-country{flex-basis:90px}}
-@media(prefers-reduced-motion:reduce){.ct-sub-success-mark{animation:none}.ct-sub-dialog *{scroll-behavior:auto!important;transition:none!important}}
-/* Text must not squeeze telephone and measurements on real phone widths. */
-.ct-sub-summary select{min-height:44px;flex:1;min-width:0;max-width:50%;border:1px solid #786c55;border-radius:9px;padding:7px;background:#111923;color:#fff;font:700 13px Inter,Alexandria,Arial,sans-serif}
-.ct-sub-dialog.is-ar #ct-sub-summary-text{direction:rtl;text-align:right;unicode-bidi:plaintext}
-.ct-sub-dialog.is-ar .ct-sub-field label,.ct-sub-dialog.is-ar .ct-sub-extra summary,.ct-sub-dialog.is-ar .ct-sub-consent{direction:rtl;text-align:right}
+.ct-sub-success{padding:20px 16px;overflow:auto;min-height:0;display:grid;gap:10px;text-align:center}
+.ct-sub-success-mark{display:grid;place-items:center;margin:auto;width:62px;height:62px;border:2px solid var(--sheet-accent);color:var(--red-hot);border-radius:50%;font-size:36px;animation:ct-sub-pop .35s ease both}
+@keyframes ct-sub-pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.ct-sub-actions{display:grid;gap:10px}.ct-sub-actions a{display:grid;place-items:center;text-decoration:none}
+.ct-sub-dialog :focus-visible{outline:2px solid var(--red-hot);outline-offset:2px}
+.ct-sub-dialog.is-ar .ct-sub-body,.ct-sub-dialog.is-ar .ct-sub-success{direction:rtl;text-align:right}
+.ct-sub-dialog.is-ar .ct-sub-field label{text-align:right}
+.ct-sub-dialog.is-ar .ct-sub-input,.ct-sub-dialog.is-ar input[type=tel]{direction:ltr;text-align:left}
 #ct-sub-title:focus{outline:none}
-@media(max-width:599px){.ct-sub-form{grid-template-columns:1fr}.ct-sub-field,.ct-sub-field.ct-sub-wide,.ct-sub-extra,.ct-sub-consent,.ct-sub-submit{grid-column:1/-1}.ct-sub-country{flex:0 0 112px;width:112px!important}.ct-sub-field .ct-sub-metric input{min-width:50px}}
-.ct-sub-dialog [hidden]{display:none!important}
-.ct-sub-metric{display:flex;flex:1;min-width:0}
-.ct-sub-metric input{flex:1;min-width:0!important;width:100%!important}
+@media(max-width:767px){
+ .ct-sub-panel{top:auto;left:0;bottom:0;width:100%;max-height:calc(100% - env(safe-area-inset-top) - 4px);transform:none;border-radius:19px 19px 0 0}
+ .ct-sub-handle{display:block;margin:5px auto 0;width:45px;height:4px;background:var(--text-3);border-radius:4px;flex:0 0 4px;touch-action:pan-y}
+ .ct-sub-head{padding:2px 12px;min-height:48px}
+ .ct-sub-summary{padding:3px 12px;min-height:42px}
+ .ct-sub-body{gap:5px 8px;padding:8px 12px}
+ .ct-sub-footer{padding:5px 12px max(7px,env(safe-area-inset-bottom))}
+}
+@media(max-width:440px){
+ .ct-sub-field[data-field="goal"] .ct-sub-select-compact label,.ct-sub-field[data-field="experience"] .ct-sub-select-compact label,.ct-sub-field[data-field="place"] .ct-sub-select-compact label{flex:0 0 103px;max-width:103px;font-size:12px}
+ .ct-sub-panel .ct-sub-field[data-field="height"] .ct-sub-inline,.ct-sub-panel .ct-sub-field[data-field="weight"] .ct-sub-inline{flex-wrap:wrap;gap:2px}
+ .ct-sub-panel .ct-sub-field[data-field="height"] .ct-sub-unit,.ct-sub-panel .ct-sub-field[data-field="weight"] .ct-sub-unit{width:100%;justify-content:space-between}
+ .ct-sub-panel .ct-sub-field[data-field="height"] .ct-sub-unit button,.ct-sub-panel .ct-sub-field[data-field="weight"] .ct-sub-unit button{flex:1}
+ .ct-sub-field[data-field="height"],.ct-sub-field[data-field="weight"]{min-width:0}
+}
+.ct-sub-short[data-step="1"] .ct-sub-step-two,.ct-sub-short[data-step="2"] .ct-sub-step-one{display:none!important}
+.ct-sub-short .ct-sub-progress{display:block}
+@media(prefers-reduced-motion:reduce){.ct-sub-dialog *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* Compact optional selections: labels and dropdowns share a horizontal row. */
+.ct-sub-field[data-field="goal"],.ct-sub-field[data-field="experience"],.ct-sub-field[data-field="place"]{display:grid;grid-template-columns:125px minmax(0,1fr);align-items:center;gap:5px}
+.ct-sub-field[data-field="goal"] .ct-sub-select-compact label,.ct-sub-field[data-field="experience"] .ct-sub-select-compact label,.ct-sub-field[data-field="place"] .ct-sub-select-compact label{display:none}
+.ct-sub-select-compact select{width:100%;min-height:44px}
+.ct-sub-honeypot{font-size:16px!important}
+@media(max-width:767px){.ct-sub-field[data-field="name"],.ct-sub-field[data-field="phone"]{grid-column:1/-1}}
+@media(max-width:390px){.ct-sub-field[data-field="goal"],.ct-sub-field[data-field="experience"],.ct-sub-field[data-field="place"]{grid-template-columns:113px minmax(0,1fr)}}
 
 </style>
 </head>
@@ -567,7 +597,7 @@ const TEXT={
  en:{navPlans:'Training Plans',navGuide:'How it works',navContact:'Contact',join:'JOIN NOW',heroAction:'CHOOSE PLAN',slogan:'BUILD YOUR BODY',tags:['Strength','Discipline','Progress'],features:['TRAINING PLANS','CLASS CALENDAR','PROGRESS TRACKING','BODY ANALYSIS'],descriptions:['Structured programs for real results','Book and plan your sessions','Monitor your growth and stay on target','Measure, analyze and optimize your progress'],plansTitle:'TRAINING PLANS',plansSubtitle:'Choose your duration and weekly sessions.',popular:'MOST POPULAR',weekly:'WEEKLY SESSIONS',purchase:'CHOOSE PLAN',connect:'FOLLOW & CONNECT',socialNote:'WhatsApp is the main way to subscribe.',wa:'WHATSAPP',guideTitle:'HOW TO START',guideText:'Choose your plan, send it to the coach on WhatsApp, then confirm your schedule and payment directly. Online or in-person training and InBody scans are arranged with the coach.',footer:'CPT TOM · TRAIN WITH PURPOSE',perMonth:'/ month',perTotal:'/ total',save:'SAVE',week:'Week'},
  ar:{navPlans:'باقات التدريب',navGuide:'طريقة الاشتراك',navContact:'تواصل',join:'اشترك الآن',heroAction:'اختار باقتك',slogan:'ابنِ أفضل نسخة من جسمك',tags:['القوة','الالتزام','التقدم'],features:['برامج التدريب','جدول الحصص','متابعة التقدم','تحليل الجسم'],descriptions:['خطط تدريب مدروسة لنتائج حقيقية','نظّم حصصك ومواعيد تمرينك','تابع تقدمك وحقق أهدافك','قياس وتحليل لتطوير أدائك'],plansTitle:'باقات التدريب',plansSubtitle:'اختار مدة الاشتراك وعدد الحصص الأسبوعية.',popular:'الأكثر اختيارًا',weekly:'عدد الحصص في الأسبوع',purchase:'اختار الباقة',connect:'تابع الكوتش وتواصل معاه',socialNote:'واتساب هو وسيلة الاشتراك الأساسية.',wa:'واتساب',guideTitle:'إزاي تبدأ',guideText:'اختار باقتك وابعتها للكوتش على واتساب، وبعدين أكّد مواعيدك وطريقة الدفع معاه. التدريب أونلاين أو حضوري وقياس InBody بيتم ترتيبهم مع الكوتش.',footer:'CPT TOM · تمرّن بهدف',perMonth:'/ شهريًا',perTotal:'/ إجمالي',save:'وفّر',week:'أسبوع'}
 };
-const state={lang:'en',months:3,frequency:3,scrollTimer:null,suppressScroll:false};
+const state={lang:'en',months:3,frequency:3,scrollTimer:null,suppressScroll:false,langSwitchToken:0};
 try{state.lang=localStorage.getItem(STORAGE)==='ar'?'ar':'en';}catch{}
 const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
 const fmt=n=>Number(n).toLocaleString('en-US');
@@ -585,22 +615,26 @@ function setMonths(m,smooth=true){if(!MONTHS.includes(m))return;state.months=m;$
 function switchLanguage(){
   // Preserve the currently visible section offset across Arabic/English reflow.
   const sections=[...document.querySelectorAll('main > section[id]')];
-  const visible=sections.filter(el=>el.getBoundingClientRect().top<=innerHeight*.65);
-  const anchor=visible.length?visible.reduce((best,el)=>Math.abs(el.getBoundingClientRect().top-100)<Math.abs(best.getBoundingClientRect().top-100)?el:best):sections[0];
+  const y=(document.querySelector('.site-header')?.getBoundingClientRect().height||70)+16;
+  const hashEl=location.hash&&sections.find(el=>'#'+el.id===location.hash&&el.getBoundingClientRect().top<innerHeight);
+  const nearBottom=scrollY>=document.documentElement.scrollHeight-innerHeight-2;
+  const closest=sections.reduce((best,el)=>Math.abs(el.getBoundingClientRect().top-y)<Math.abs(best.getBoundingClientRect().top-y)?el:best,sections[0]);
+  const visibleAtBottom=nearBottom&&Math.abs(closest.getBoundingClientRect().top-y)>140?sections.filter(el=>{const r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0;}).at(-1):null;
+  const anchor=hashEl||visibleAtBottom||closest;
   const top=anchor?.getBoundingClientRect().top??0;
-  const beforeY=scrollY;const beforeBehavior=document.documentElement.style.scrollBehavior;
+  const beforeY=scrollY;const beforeBehavior=document.documentElement.style.scrollBehavior;const token=++state.langSwitchToken;
   state.lang=state.lang==='ar'?'en':'ar';try{localStorage.setItem(STORAGE,state.lang);}catch{}
   // Prevent smooth-scroll rules from producing visible jumps during restoration.
   document.documentElement.style.scrollBehavior='auto';
   renderCopy();renderFrequency();renderPlans(false);closeMenu();
-  const restore=()=>{if(!anchor?.isConnected)return;const delta=anchor.getBoundingClientRect().top-top;if(Math.abs(delta)>.25)scrollTo({top:scrollY+delta,behavior:'instant'});};
+  const restore=()=>{if(token!==state.langSwitchToken||!anchor?.isConnected)return;const delta=anchor.getBoundingClientRect().top-top;if(Math.abs(delta)>.25){const dest=scrollY+delta,max=document.documentElement.scrollHeight-innerHeight;if(dest>max){const existing=parseFloat(document.body.style.paddingBottom)||0;document.body.style.paddingBottom=(existing+Math.ceil(dest-max)+2)+'px';}scrollTo({top:dest,behavior:'instant'});}};
   restore();
   // Hold the same section position through font/image reflow without overriding a new user scroll.
   let stopped=false; const stop=()=>{stopped=true;};
   const opts={passive:true,once:true};
   window.addEventListener('wheel',stop,opts);window.addEventListener('touchmove',stop,opts);
   let ticks=0;
-  const settle=()=>{if(!stopped)restore();if(++ticks<12)requestAnimationFrame(settle);else{document.documentElement.style.scrollBehavior=beforeBehavior;window.removeEventListener('wheel',stop);window.removeEventListener('touchmove',stop);}};
+  const settle=()=>{if(token!==state.langSwitchToken)return;if(!stopped)restore();if(++ticks<12)requestAnimationFrame(settle);else{document.documentElement.style.scrollBehavior=beforeBehavior;window.removeEventListener('wheel',stop);window.removeEventListener('touchmove',stop);}};
   requestAnimationFrame(settle);
   for(const d of [70,150,250])setTimeout(()=>{if(!stopped)restore();},d);
   if(document.fonts?.ready)document.fonts.ready.then(()=>{if(!stopped)restore();});
@@ -986,12 +1020,13 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
  dialog.append(veil,erosion,canvas,shell);document.body.append(dialog);
  const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
  const ectx=erosion.getContext('2d',{alpha:true,desynchronized:true});
- const colors=['#282b32','#41444b','#555860','#6b6d74','#898890','#c21c2c'];
- const debug={opens:0,particleOpens:0,particleCloses:0,fadeOpens:0,lastMode:'none',shardCount:0,activeParticles:0,sizeMin:0,sizeMax:0,canvasWidth:0,canvasHeight:0,prepCount:0,prepMs:0,tapSyncMs:0,firstChangeMs:0,drawMsMax:0,drawMsAverage:0,maxFrameMs:0,frameCount:0,slowFrames:0,reverseVerified:false,captureCalls:0,transitionFrames:[],reducedMode:false,qualityStride:1};
+ const colors=['#0A0D12','#101319','#12161D','#181D25','#47505A','#C4121F'];
+ const debug={opens:0,particleOpens:0,particleCloses:0,fadeOpens:0,lastMode:'none',shardCount:0,activeParticles:0,sizeMin:0,sizeMax:0,canvasWidth:0,canvasHeight:0,prepCount:0,prepMs:0,tapSyncMs:0,firstChangeMs:0,drawMsMax:0,drawMsAverage:0,maxFrameMs:0,frameCount:0,slowFrames:0,reverseVerified:false,captureCalls:0,transitionFrames:[],avgFrameMs:0,openFrames:null,closeFrames:null,reducedMode:false,qualityStride:1};
  let atlasWidth=0, atlasEdge=0, erosionMotion=null, dustMotion=null;
  let phase='closed',progress=0, owner=0, raf=0, requestComplete=null, veilAnimation=null, flipAnimation=null, readies=false, geometryCache=[],particles=null,bucketList=null;
  let lastMeasureScroll=0, prepTimer=0, version=0, lockScrollY=0, oldOverflow='',oldGutter='',oldBody=null,oldBehavior='',focusBefore=null,placeholder=null, startStage=null;
  let isLocked=false,cachedMount=null,configuredW=0,configuredH=0,dpr=1,lastResizeWidth=innerWidth, tapStart=0,lastTick=0,drawSum=0,drawN=0,slow=0,stride=1,activeElapsed=0,consecutiveSlow=0;
+ let measurementRaf=0,measurementToken=0;
  const duration=Math.max(300, Number(config.durationMs)||700);
  const safeFocus=el=>{try{el?.focus({preventScroll:true})}catch{}};
  function localize(){const dict=copy[tr()];enter.textContent=dict.enter;close.textContent=dict.exit;title.textContent=dict.title;enter.setAttribute('aria-label',dict.enter);close.setAttribute('aria-label',dict.exit);}
@@ -1006,7 +1041,17 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
   configuredW=w;configuredH=h;dpr=scale;ctx.setTransform(scale,0,0,scale,0,0);ectx.setTransform(scale,0,0,scale,0,0);
   debug.canvasWidth=cw;debug.canvasHeight=ch;
  }
- function rawColor(el){const cs=getComputedStyle(el),rgb=(cs.backgroundColor.match(/rgba?\((\d+)[, ]+(\d+)[, ]+(\d+)/)||[]);if(!rgb.length)return 0;const c=(+rgb[1]+ +rgb[2]+ +rgb[3])/3;return c>80?4:c>55?3:c>35?2:c>22?1:0;}
+ function rawColor(el){
+  // Element-computed palette, not a page screenshot. Transparent blocks inherit their nearest opaque ancestor.
+  const matchColor=(str)=>{const m=str.match(/rgba?\((\d+)[, ]+(\d+)[, ]+(\d+)(?:[, /]+([\d.]+))?/);if(!m)return null;if(m[4]!==undefined&&Number(m[4])<.14)return null;return [Number(m[1]),Number(m[2]),Number(m[3])];};
+  const paints=colors.map(str=>[parseInt(str.slice(1,3),16),parseInt(str.slice(3,5),16),parseInt(str.slice(5,7),16)]);
+  let node=el,seen=0,real=null;
+  while(node&&seen++<5){const style=getComputedStyle(node);real=matchColor(style.backgroundColor);if(real)break;node=node.parentElement;}
+  if(!real)return 0;
+  let bucket=0,least=Infinity;
+  for(let k=0;k<paints.length;k++){const d=paints[k].reduce((v,c,i)=>v+(c-real[i])**2,0);if(d<least){bucket=k;least=d;}}
+  return bucket;
+ }
  function measure(){const query='body > header, main > section:not(#results), .hero-text, .feature, .feature-image, .pricing-card, .pricing-stage, .plan-summary, .connect-section, .guide-section, footer, #results > .ct-results__heading';
   const out=[],y=window.scrollY;for(const el of document.querySelectorAll(query)){
    if(el.closest('.ct-cinema-dialog')||el.matches('input,textarea,select,[contenteditable]')||el.querySelector('input[type=password]'))continue;
@@ -1027,7 +1072,7 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
   boxes.forEach((r,i)=>{const n=i===boxes.length-1?count-p:Math.round(count*area[i]/sum);for(let j=0;j<n&&p<count;j++,p++){
     const xx=r.x+r.w*rng(), yy=r.y+r.h*rng(),r0=rng();let size=.6+1.6*Math.pow(r0,.74);if(rng()<.03)size=2.5+.5*rng();
     arrays.x[p]=xx;arrays.y[p]=yy+currY;arrays.vx[p]=(rng()-.5)*Math.min(w*.44,260);arrays.vy[p]=-12-140*rng()+(rng()-.5)*55;arrays.size[p]=size;
-    const edge=rtl?Math.abs(w-xx)/w:xx/w;arrays.delay[p]=Math.min(.38,Math.max(0,edge*.31+(.12*rng())));const bucket=rng()<.055?5:r.c===4?Math.floor(rng()*5):Math.min(4,Math.max(0,r.c+Math.floor(3*rng())-1));arrays.bucket[p]=bucket;buckets[bucket].push(p);
+    const edge=rtl?Math.abs(w-xx)/w:xx/w;arrays.delay[p]=Math.min(.38,Math.max(0,edge*.31+(.12*rng())));const bucket=(r.c===5||rng()<.023)?5:r.c;arrays.bucket[p]=bucket;buckets[bucket].push(p);
   }});
   // last fraction can be left unused due to rounding of block quotas
   particles={...arrays,count:p,originScroll:currY,buckets:buckets.map(b=>Uint32Array.from(b))};
@@ -1083,6 +1128,7 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
  }
  function cancelAnim(){
   if(raf)cancelAnimationFrame(raf);raf=0;
+  if(measurementRaf)cancelAnimationFrame(measurementRaf);measurementRaf=0;measurementToken++;
   for(const a of [erosionMotion,dustMotion]){try{a?.cancel()}catch{}}
   erosionMotion=dustMotion=null;
   if(requestComplete){const resolve=requestComplete;requestComplete=null;resolve();}
@@ -1095,6 +1141,28 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
   try{flipAnimation?.cancel();flipAnimation=shell.animate([{transform:from},{transform:to}],{duration:ms,fill:'forwards',easing:'ease-in-out'});}catch{shell.style.transform=to;}
  }
  function getFlip(){const start=startStage;if(!start)return 'none';const final=shell.getBoundingClientRect();const cx=start.x+start.width/2,cy=start.y+start.height/2,fx=final.x+final.width/2,fy=final.y+final.height/2;const s=Math.min(1.1,Math.max(.15,start.width/final.width));return `translate(${Math.round(cx-fx)}px,${Math.round(cy-fy)}px) scale(${s.toFixed(4)})`;}
+ function measureFrames(stamp,ms,isOpening){
+  if(measurementRaf)cancelAnimationFrame(measurementRaf);
+  const token=++measurementToken;
+  let last=0,seen=0,total=0;
+  debug.frameCount=0;debug.maxFrameMs=0;debug.slowFrames=0;debug.avgFrameMs=0;debug.transitionFrames=[];
+  function tick(now){
+    if(token!==measurementToken||stamp!==owner||!dialog.open)return;
+    if(last){const dt=now-last;seen++;total+=dt;debug.frameCount=seen;debug.avgFrameMs=+(total/seen).toFixed(2);
+      debug.maxFrameMs=Math.max(debug.maxFrameMs,+dt.toFixed(2));if(dt>33)debug.slowFrames++;
+      if(debug.transitionFrames.length<120)debug.transitionFrames.push(+dt.toFixed(2));
+      // The density is baked into the atlas, so adjustment changes only compositing, never reallocates images in motion.
+      if(seen===10&&debug.avgFrameMs>24){debug.qualityStride=2;canvas.style.opacity='.72';}
+      if(seen===18&&debug.avgFrameMs>40){debug.qualityStride=4;canvas.animate([{opacity:.72},{opacity:0}],{duration:180,fill:'forwards'});}
+    }
+    last=now;measurementRaf=requestAnimationFrame(tick);
+  }
+  measurementRaf=requestAnimationFrame(tick);
+  const save=()=>{if(token!==measurementToken)return;const rec={frames:seen,averageMs:debug.avgFrameMs,worstMs:debug.maxFrameMs,over33Ms:debug.slowFrames};
+    if(isOpening)debug.openFrames=rec;else debug.closeFrames=rec;
+  };
+  setTimeout(save,ms+80);
+}
  function change(to,ms,stamp){
   cancelAnim();
   const start=`translate3d(${-atlasWidth}px,0,0)`, end='translate3d(0px,0,0)';
@@ -1108,7 +1176,7 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
   erosionMotion=erosion.animate(key,options);
   dustMotion=canvas.animate(key,options);
   animateLayer(from,to,ms);
-  debug.frameCount=0;debug.transitionFrames=[];
+  measureFrames(stamp,ms,to===1);
   return new Promise(resolve=>{
    requestComplete=resolve;
    const current=erosionMotion;
@@ -1120,6 +1188,7 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
     erosion.style.transform=canvas.style.transform=to>=1?end:start;
     current.cancel();try{dustMotion?.cancel()}catch{}
     erosionMotion=dustMotion=null;
+    if(measurementRaf){cancelAnimationFrame(measurementRaf);measurementRaf=0;}
     fn?.();
    }).catch(()=>{});
   });
@@ -1130,7 +1199,7 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
  async function enterCinema(){
    if(phase!=='closed'||root.hidden)return;
    const st=performance.now();tapStart=st;phase='opening';const stamp=++owner;focusBefore=document.activeElement;
-   debug.opens++;debug.reducedMode=reduced.matches;debug.transitionFrames=[];debug.maxFrameMs=0;debug.slowFrames=0;debug.drawMsMax=0;drawSum=0;drawN=0;consecutiveSlow=0;stride=1;debug.qualityStride=stride;debug.activeParticles=Math.floor(debug.shardCount/stride);
+   canvas.style.opacity='1';debug.opens++;debug.reducedMode=reduced.matches;debug.transitionFrames=[];debug.maxFrameMs=0;debug.slowFrames=0;debug.drawMsMax=0;drawSum=0;drawN=0;consecutiveSlow=0;stride=1;debug.qualityStride=stride;debug.activeParticles=Math.floor(debug.shardCount/stride);
    const mode=ctx&&ectx&&readies&&config.particles!==false&&!reduced.matches?'particles':'fade';debug.lastMode=mode;if(mode==='particles')debug.particleOpens++;else debug.fadeOpens++;
    // Zero geometry/style reads or DOM reparenting in the input handler.
    debug.tapSyncMs=+(performance.now()-st).toFixed(2);
@@ -1145,11 +1214,11 @@ window.CPT_CINEMA_CONFIG = Object.freeze({ enabled: true, particles: true, captu
      if(mode==='particles')showPart(.015);
      const time=mode==='particles'?duration:reduced.matches?0:160;
      await change(1,time,stamp);
-     if(stamp!==owner||phase!=='opening')return;phase='open';
+     if(stamp!==owner||phase!=='opening')return;debug.openFrames={frames:debug.frameCount,averageMs:debug.avgFrameMs,worstMs:debug.maxFrameMs,over33Ms:debug.slowFrames};phase='open';
      if(!reduced.matches)modalSweep();
    });
  }
- async function exitCinema(){if(phase==='closed'||phase==='closing')return;const stamp=++owner;phase='closing';modalSweepToken++;cancelAnim();const use=debug.lastMode==='particles'&&!!particles&&!reduced.matches&&!document.hidden;const flip=getFlip();shellFlip('none',flip,use?duration:0);await change(0,use?duration:reduced.matches?0:160,stamp);if(stamp!==owner||phase!=='closing')return;if(use){debug.particleCloses++;debug.reverseVerified=true;}finish();}
+ async function exitCinema(){if(phase==='closed'||phase==='closing')return;const stamp=++owner;phase='closing';modalSweepToken++;cancelAnim();const use=debug.lastMode==='particles'&&!!particles&&!reduced.matches&&!document.hidden;const flip=getFlip();shellFlip('none',flip,use?duration:0);await change(0,use?duration:reduced.matches?0:160,stamp);if(stamp!==owner||phase!=='closing')return;if(use){debug.particleCloses++;debug.reverseVerified=true;debug.closeFrames={frames:debug.frameCount,averageMs:debug.avgFrameMs,worstMs:debug.maxFrameMs,over33Ms:debug.slowFrames};}finish();}
  enter.addEventListener('click',enterCinema);close.addEventListener('click',exitCinema);
  let down=null;const stage=mount.querySelector('.ct-results__frame');stage?.addEventListener('pointerdown',e=>{if(phase!=='closed'||e.target.closest('button,a'))return;down={x:e.clientX,y:e.clientY,t:performance.now(),id:e.pointerId};},{passive:true});stage?.addEventListener('pointerup',e=>{if(!down||down.id!==e.pointerId)return;const d=Math.hypot(e.clientX-down.x,e.clientY-down.y),dt=performance.now()-down.t;down=null;if(d<8&&dt<300&&phase==='closed'){enterCinema();}},{passive:true});stage?.addEventListener('pointercancel',()=>{down=null;},{passive:true});
  dialog.addEventListener('cancel',e=>{e.preventDefault();exitCinema();});
@@ -1208,8 +1277,8 @@ const FIELD_CONFIG=[
  {id:'consent',type:'checkbox',required:true,section:'primary'}
 ];
 const LABEL={
- en:{title:'START YOUR TRANSFORMATION',summary:'Your selected plan',name:'Full name',phone:'Mobile number',height:'Height',weight:'Weight',goal:'Your goal (optional)',experience:'Training experience (optional)',place:'Where you train (optional)',inbody:'InBody report (optional)',age:'Age (optional)',gender:'Gender (optional)',injuries:'Injuries or anything the coach should know (optional)',contactTime:'Best time to contact you (optional)',consent:'I agree to share my details with Coach Tom so he can contact me.',extra:'More details (optional)',file:'Upload InBody PDF · max 10 MB',remove:'Remove',submit:'Continue to WhatsApp',close:'Close',tip:'WhatsApp opens with a ready message. You still need to tap Send yourself.',success:'Your request is ready, {name}.',successInfo:'Review the message in WhatsApp and tap Send. Nothing has been sent automatically.',openWA:'Open WhatsApp',back:'Back to website',pdfShare:'Send your InBody PDF',pdfManual:'Attach your InBody PDF in the WhatsApp chat.',nameError:'Enter your name (at least 2 letters).',phoneError:'Enter a valid mobile number for the selected country.',heightError:'Enter a height between 120 and 230 cm.',weightError:'Enter a weight between 30 and 250 kg.',consentError:'Please agree before continuing.',fileError:'Use a valid PDF file smaller than 10 MB.',wait:'Please review the details and try again.',required:'Required',months:'months',week:'sessions/week',none:'Not provided',goalChips:['Fat loss','Build muscle','General fitness','Sport / competition prep'],experienceChips:['Beginner','Intermediate','Advanced'],placeChips:['Gym','Home'],genderChips:['Male','Female'],contactTimeChips:['Morning','Afternoon','Evening'],monthsMap:{1:'1 MONTH',2:'2 MONTHS',3:'3 MONTHS',5:'5 MONTHS'}},
- ar:{title:'ابدأ رحلتك مع كوتش توم',summary:'الباقة اللي اخترتها',name:'الاسم بالكامل',phone:'رقم الموبايل',height:'الطول',weight:'الوزن',goal:'هدفك (اختياري)',experience:'مستواك في التمرين (اختياري)',place:'مكان التمرين (اختياري)',inbody:'تقرير InBody (اختياري)',age:'السن (اختياري)',gender:'النوع (اختياري)',injuries:'إصابة أو معلومة تحب الكوتش يعرفها (اختياري)',contactTime:'أنسب وقت نتواصل معاك (اختياري)',consent:'موافق إن بياناتي توصل لكوتش توم عشان يتواصل معايا.',extra:'تفاصيل زيادة (اختياري)',file:'ارفع تقرير InBody PDF · حتى 10 MB',remove:'حذف',submit:'كمّل على واتساب',close:'إغلاق',tip:'هيفتح واتساب برسالة جاهزة، ولازم تضغط إرسال بنفسك.',success:'طلبك جاهز يا {name}.',successInfo:'راجع الرسالة في واتساب واضغط إرسال. مفيش رسالة اتبعتت تلقائيًا.',openWA:'افتح واتساب',back:'العودة للموقع',pdfShare:'ابعت ملف InBody',pdfManual:'ارفق ملف InBody في محادثة الكوتش على واتساب.',nameError:'اكتب اسمك، حرفين على الأقل.',phoneError:'اكتب رقم موبايل صحيح حسب الدولة.',heightError:'اكتب طول من 120 إلى 230 سم.',weightError:'اكتب وزن من 30 إلى 250 كجم.',consentError:'لازم توافق قبل المتابعة.',fileError:'اختار ملف PDF صالح أقل من 10 MB.',wait:'راجع بياناتك وجرب تاني.',required:'مطلوب',months:'شهور',week:'حصص/أسبوع',none:'مش محدد',goalChips:['خسارة دهون','بناء عضل','لياقة عامة','تحضير لرياضة أو بطولة'],experienceChips:['مبتدئ','متوسط','متقدم'],placeChips:['جيم','بيت'],genderChips:['ذكر','أنثى'],contactTimeChips:['صباحًا','بعد الضهر','بالليل'],monthsMap:{1:'شهر',2:'شهرين',3:'3 شهور',5:'5 شهور'}}};
+ en:{title:'JOIN CPT TOM',summary:'Your selected plan',name:'Full name',phone:'Mobile number',height:'Height',weight:'Weight',goal:'Your goal (optional)',experience:'Training experience (optional)',place:'Where you train (optional)',inbody:'InBody report (optional)',age:'Age (optional)',gender:'Gender (optional)',injuries:'Injuries or anything the coach should know (optional)',contactTime:'Best time to contact you (optional)',consent:'I agree to share my details with Coach Tom so he can contact me.',extra:'More details (optional)',file:'Upload InBody PDF · max 10 MB',remove:'Remove',submit:'Continue to WhatsApp',close:'Close',tip:'WhatsApp opens with a ready message. You still need to tap Send yourself.',success:'Your request is ready, {name}.',successInfo:'Review the message in WhatsApp and tap Send. Nothing has been sent automatically.',openWA:'Open WhatsApp',back:'Back to website',pdfShare:'Send your InBody PDF',pdfManual:'Attach your InBody PDF in the WhatsApp chat.',nameError:'Enter your name (at least 2 letters).',phoneError:'Enter a valid mobile number for the selected country.',heightError:'Enter a height between 120 and 230 cm.',weightError:'Enter a weight between 30 and 250 kg.',consentError:'Please agree before continuing.',fileError:'Use a valid PDF file smaller than 10 MB.',wait:'Please review the details and try again.',required:'Required',months:'months',week:'sessions/week',none:'Not provided',goalChips:['Fat loss','Build muscle','General fitness','Sport / competition prep'],experienceChips:['Beginner','Intermediate','Advanced'],placeChips:['Gym','Home'],genderChips:['Male','Female'],contactTimeChips:['Morning','Afternoon','Evening'],monthsMap:{1:'1 MONTH',2:'2 MONTHS',3:'3 MONTHS',5:'5 MONTHS'}},
+ ar:{title:'اشترك مع كوتش توم',summary:'الباقة اللي اخترتها',name:'الاسم بالكامل',phone:'رقم الموبايل',height:'الطول',weight:'الوزن',goal:'هدفك (اختياري)',experience:'مستواك في التمرين (اختياري)',place:'مكان التمرين (اختياري)',inbody:'تقرير InBody (اختياري)',age:'السن (اختياري)',gender:'النوع (اختياري)',injuries:'إصابة أو معلومة تحب الكوتش يعرفها (اختياري)',contactTime:'أنسب وقت نتواصل معاك (اختياري)',consent:'موافق إن بياناتي توصل لكوتش توم عشان يتواصل معايا.',extra:'تفاصيل زيادة (اختياري)',file:'ارفع تقرير InBody PDF · حتى 10 MB',remove:'حذف',submit:'كمّل على واتساب',close:'إغلاق',tip:'هيفتح واتساب برسالة جاهزة، ولازم تضغط إرسال بنفسك.',success:'طلبك جاهز يا {name}.',successInfo:'راجع الرسالة في واتساب واضغط إرسال. مفيش رسالة اتبعتت تلقائيًا.',openWA:'افتح واتساب',back:'العودة للموقع',pdfShare:'ابعت ملف InBody',pdfManual:'ارفق ملف InBody في محادثة الكوتش على واتساب.',nameError:'اكتب اسمك، حرفين على الأقل.',phoneError:'اكتب رقم موبايل صحيح حسب الدولة.',heightError:'اكتب طول من 120 إلى 230 سم.',weightError:'اكتب وزن من 30 إلى 250 كجم.',consentError:'لازم توافق قبل المتابعة.',fileError:'اختار ملف PDF صالح أقل من 10 MB.',wait:'راجع بياناتك وجرب تاني.',required:'مطلوب',months:'شهور',week:'حصص/أسبوع',none:'مش محدد',goalChips:['خسارة دهون','بناء عضل','لياقة عامة','تحضير لرياضة أو بطولة'],experienceChips:['مبتدئ','متوسط','متقدم'],placeChips:['جيم','بيت'],genderChips:['ذكر','أنثى'],contactTimeChips:['صباحًا','بعد الضهر','بالليل'],monthsMap:{1:'شهر',2:'شهرين',3:'3 شهور',5:'5 شهور'}}};
 const optionDefs={goal:'goalChips',experience:'experienceChips',place:'placeChips',gender:'genderChips',contactTime:'contactTimeChips'};
 const $=(s,root=document)=>root.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1218,48 +1287,65 @@ const words=()=>LABEL[lang()];
 const v={name:'',country:'eg',otherDial:'',phone:'',heightCm:null,heightUnit:'cm',weightKg:null,weightUnit:'kg',goal:'',experience:'',place:'',age:'',gender:'',injuries:'',contactTime:'',consent:false,months:3,frequency:3};
 const validNumber=(x)=>Number.isFinite(Number(x))&&String(x).trim()!=='';
 let dialog,panel,form,success,openedAt=0,from=null,scrollSaved=0,overflowSaved='',gutterSaved='',file=null,waHref='',lastValidation={},internalUpdating=false,beginSwipe=null,viewW=0;
+let bodyStyles=null,historyEntry=false,ignoreNextPop=false,shortMode=false,step=1,focusTimer=0,heightEditedInFeet=false,keyboardActive=false;
+const planEng=m=>`${m} ${m===1?'month':'months'}`;
+const COACH_LABELS={en:{goal:'Goal',experience:'Level',place:'Training place',age:'Age',gender:'Gender',injuries:'Injuries',contactTime:'Best time to call'},ar:{goal:'الهدف',experience:'المستوى',place:'مكان التمرين',age:'السن',gender:'النوع',injuries:'الإصابات',contactTime:'أنسب وقت للتواصل'}};
 function fromState(){v.months=state.months;v.frequency=state.frequency;}
 function saveDraft(){try{const p={...v};sessionStorage.setItem(KEY,JSON.stringify(p));}catch{}}
 function restoreDraft(){try{const p=JSON.parse(sessionStorage.getItem(KEY)||'null');if(!p||typeof p!=='object')return;for(const key of Object.keys(v)){if(Object.prototype.hasOwnProperty.call(p,key)&&key!=='months'&&key!=='frequency'&&key!=='consent')v[key]=p[key];}}catch{}}
 function getPlanPrice(){return PRICES[v.frequency]?.[v.months]??null;}
-function planSummary(){const x=getPlanPrice(),L=words();return `${L.monthsMap[v.months]} · ${v.frequency} ${L.week} · ${lang()==='ar'?`${fmt(x)} ج.م`:`EGP ${fmt(x)}`}`;}
+function planSummary(){const x=getPlanPrice(),L=words();return `${lang()==='ar'?L.monthsMap[v.months]:planEng(v.months)} · ${v.frequency} ${L.week} · ${lang()==='ar'?`${fmt(x)} ج.م`:`EGP ${fmt(x)}`}`;}
 function opt(s,val,label){return `<option value="${esc(val)}" ${String(s)===String(val)?'selected':''}>${esc(label)}</option>`;}
 function input(name,type='text',extras=''){return `<input id="cts-${name}" name="${name}" type="${type}" ${extras} />`;}
-function chips(name){const L=words();return `<div class="ct-sub-choice" role="group" aria-label="${esc(L[name])}">${L[optionDefs[name]].map((item,i)=>`<button type="button" aria-pressed="${v[name]===String(i)}" data-chip="${name}" data-choice="${i}">${esc(item)}</button>`).join('')}</div>`;}
+function chips(name){const L=words(),items=L[optionDefs[name]];
+ if(true)return `<div class="ct-sub-select-compact"><select id="cts-${name}" name="${name}" aria-label="${esc(L[name])}"><option value="">${lang()==='ar'?'اختياري':'Optional'}</option>${items.map((txt,i)=>opt(v[name],String(i),txt)).join('')}</select></div>`;
+ return `<div class="ct-sub-choice" role="group" aria-label="${esc(L[name])}">${items.map((txt,i)=>`<button type="button" aria-pressed="${v[name]===String(i)}" data-chip="${name}" data-choice="${i}">${esc(txt)}</button>`).join('')}</div>`;
+}
 function fieldHtml(f){const L=words(),id=f.id,title=esc(L[id]),err=`<div id="cts-err-${id}" class="ct-sub-error" aria-live="polite"></div>`;
- if(id==='consent')return `<label class="ct-sub-consent"><input id="cts-consent" type="checkbox" ${v.consent?'checked':''} required><span>${title}</span></label>${err}`;
+ if(id==='consent')return `<label class="ct-sub-consent ct-sub-step-two"><input id="cts-consent" name="consent" type="checkbox" ${v.consent?'checked':''} required><span>${title}</span></label>${err}`;
  let html='';
- if(id==='phone')html=`<div class="ct-sub-inline"><select class="ct-sub-country" id="cts-country" aria-label="${esc(lang()==='ar'?'رمز الدولة':'Country code')}">${PHONE_COUNTRIES.map(c=>opt(v.country,c[0],c[1])).join('')}</select><input id="cts-otherDial" name="otherDial" type="tel" inputmode="numeric" aria-label="${esc(lang()==='ar'?'كود الدولة':'Calling code')}" placeholder="+44" maxlength="5" style="width:70px;flex:0 0 70px" ${v.country==='other'?'':'hidden'}>${input('phone','tel','inputmode="tel" autocomplete="tel-national" placeholder="1028820336" required')}</div>`;
+ if(id==='phone')html=`<div class="ct-sub-inline"><select class="ct-sub-country" id="cts-country" name="country" aria-label="${esc(lang()==='ar'?'رمز الدولة':'Country code')}">${PHONE_COUNTRIES.map(c=>opt(v.country,c[0],c[1])).join('')}</select><input id="cts-otherDial" name="otherDial" type="tel" inputmode="numeric" aria-label="${esc(lang()==='ar'?'كود الدولة':'Calling code')}" placeholder="+44" maxlength="5" ${v.country==='other'?'':'hidden'}>${input('phone','tel','inputmode="tel" autocomplete="tel-national" placeholder="1028820336" required')}</div>`;
  else if(id==='height')html=`<div class="ct-sub-inline"><div class="ct-sub-metric" id="cts-height-wrap">${input('height','number','min="120" max="230" step=".1" inputmode="decimal" required')}</div><div class="ct-sub-unit" role="group" aria-label="${esc(title)}"><button type="button" data-unit="height" data-set="cm" aria-pressed="${v.heightUnit==='cm'}">cm</button><button type="button" data-unit="height" data-set="ft" aria-pressed="${v.heightUnit==='ft'}">ft-in</button></div></div>`;
  else if(id==='weight')html=`<div class="ct-sub-inline"><div class="ct-sub-metric" id="cts-weight-wrap">${input('weight','number','min="30" max="250" step=".1" inputmode="decimal" required')}</div><div class="ct-sub-unit" role="group" aria-label="${esc(title)}"><button type="button" data-unit="weight" data-set="kg" aria-pressed="${v.weightUnit==='kg'}">kg</button><button type="button" data-unit="weight" data-set="lb" aria-pressed="${v.weightUnit==='lb'}">lb</button></div></div>`;
  else if(f.type==='chips')html=chips(id);
- else if(f.type==='pdf')html=`<div class="ct-sub-file"><input id="cts-inbody" type="file" accept=".pdf,application/pdf" aria-label="${title}"><span id="cts-file-label">${esc(L.file)}</span><button class="ct-sub-file-remove" id="cts-file-remove" type="button" hidden>${esc(L.remove)}</button></div>`;
- else if(id==='injuries')html=`<textarea id="cts-injuries" maxlength="200" rows="2" aria-label="${title}"></textarea>`;
+ else if(f.type==='pdf')html=`<div class="ct-sub-file"><input id="cts-inbody" name="inbody" type="file" accept=".pdf,application/pdf" aria-label="${title}"><span id="cts-file-label">${esc(L.file)}</span><button class="ct-sub-file-remove" id="cts-file-remove" type="button" hidden>${esc(L.remove)}</button></div>`;
+ else if(id==='injuries')html=`<textarea id="cts-injuries" name="injuries" maxlength="200" rows="2" aria-label="${title}"></textarea>`;
  else if(id==='age')html=input('age','number','min="13" max="100" inputmode="numeric"');
  else html=input(id,f.type,f.required?'required autocomplete="name" maxlength="80"':'');
- return `<div class="ct-sub-field ${['goal','experience','place','inbody','injuries'].includes(id)?'ct-sub-wide':''}" data-field="${id}"><label for="cts-${id}">${title}${f.required?' *':''}</label>${html}${err}</div>`;
+ const compact=id==='goal'||id==='experience'||id==='place';
+ return `<div class="ct-sub-field ${['goal','experience','place','inbody','injuries'].includes(id)?'ct-sub-wide':''} ${['name','phone','height','weight'].includes(id)?'ct-sub-step-one':'ct-sub-step-two'}" data-field="${id}"><label for="cts-${id}">${title}${f.required?' *':''}</label>${html}${err}</div>`;
 }
-function getMarkup(){const L=words();const prim=FIELD_CONFIG.filter(f=>f.section==='primary'&&f.id!=='consent'),extra=FIELD_CONFIG.filter(f=>f.section==='extra'),consent=FIELD_CONFIG.find(f=>f.id==='consent');return `<div class="ct-sub-panel" role="document"><span class="ct-sub-handle" aria-hidden="true"></span><div class="ct-sub-head"><h2 tabindex="-1" id="ct-sub-title">${esc(L.title)}</h2><button type="button" class="ct-sub-close" id="ct-sub-close" aria-label="${esc(L.close)}">×</button></div><div class="ct-sub-summary"><span>${esc(L.summary)}:</span><div id="ct-sub-summary-text" aria-live="polite"></div><div class="ct-sub-inline"><select id="ct-sub-months" aria-label="${esc(lang()==='ar'?'مدة الاشتراك':'Plan duration')}">${MONTHS.map(m=>opt(v.months,m,L.monthsMap[m])).join('')}</select><select id="ct-sub-frequency" aria-label="${esc(lang()==='ar'?'الحصص الأسبوعية':'Weekly sessions')}">${availableWeeks().map(w=>opt(v.frequency,w,`${w} ${L.week}`)).join('')}</select></div></div><form id="ct-sub-form" class="ct-sub-form" novalidate>${prim.map(fieldHtml).join('')}<details class="ct-sub-extra"><summary>${esc(L.extra)}</summary><div class="ct-sub-extra-body">${extra.map(fieldHtml).join('')}</div></details><div class="ct-sub-consent">${fieldHtml(consent)}</div><input class="ct-sub-honeypot" type="text" name="address2" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="ct-sub-submit">${esc(L.submit)}</button><div class="ct-sub-tip">${esc(L.tip)}</div></form><div class="ct-sub-success" id="ct-sub-success" hidden aria-live="polite"><span class="ct-sub-success-mark" aria-hidden="true">✓</span><h3 id="ct-sub-success-title"></h3><p>${esc(L.successInfo)}</p><div class="ct-sub-actions"><a id="ct-sub-open-wa" class="ct-sub-btn" target="_blank" rel="noopener noreferrer">${esc(L.openWA)}</a><button type="button" class="ct-sub-btn" id="ct-sub-share" hidden>${esc(L.pdfShare)}</button><div id="ct-sub-pdf-instruction" hidden>${esc(L.pdfManual)}</div><button type="button" class="ct-sub-done" id="ct-sub-done">${esc(L.back)}</button></div></div></div>`;}
+function getMarkup(){const L=words(),primary=FIELD_CONFIG.filter(f=>f.section==='primary'&&f.id!=='consent'),extra=FIELD_CONFIG.filter(f=>f.section==='extra'),consent=FIELD_CONFIG.find(f=>f.id==='consent');
+ const change=lang()==='ar'?'تغيير':'Change',next=lang()==='ar'?'التالي':'Next',previous=lang()==='ar'?'السابق':'Back';
+ return `<div class="ct-sub-panel" role="document"><span class="ct-sub-handle" aria-hidden="true"></span><div class="ct-sub-head"><h2 tabindex="-1" id="ct-sub-title">${esc(L.title)}</h2><button type="button" class="ct-sub-close" id="ct-sub-close" aria-label="${esc(L.close)}">×</button></div><div class="ct-sub-summary"><span id="ct-sub-summary-text" class="ct-sub-summary-text" aria-live="polite">${esc(planSummary())}</span><button id="ct-sub-change-plan" class="ct-sub-change-plan" type="button">${change}</button></div>
+ <form id="ct-sub-form" class="ct-sub-form" novalidate><div id="ct-sub-body" class="ct-sub-body">${primary.map(fieldHtml).join('')}<details class="ct-sub-extra ct-sub-step-two"><summary>${esc(L.extra)}</summary><div class="ct-sub-extra-body">${extra.map(fieldHtml).join('')}</div></details>${fieldHtml(consent)}<input class="ct-sub-honeypot" type="text" name="address2" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
+ <div class="ct-sub-footer"><div id="ct-sub-progress" class="ct-sub-progress" aria-live="polite">1 / 2</div><div class="ct-sub-footer-buttons"><button type="button" class="ct-sub-back" id="ct-sub-back" hidden>${previous}</button><button type="button" class="ct-sub-next" id="ct-sub-next" hidden>${next}</button><button type="submit" class="ct-sub-submit">${esc(L.submit)}</button></div><div class="ct-sub-tip">${esc(L.tip)}</div></div></form>
+ <div class="ct-sub-success" id="ct-sub-success" hidden aria-live="polite"><span class="ct-sub-success-mark" aria-hidden="true">✓</span><h3 id="ct-sub-success-title" tabindex="-1"></h3><p>${esc(L.successInfo)}</p><div class="ct-sub-actions"><a id="ct-sub-open-wa" class="ct-sub-btn" target="_blank" rel="noopener noreferrer">${esc(L.openWA)}</a><button type="button" class="ct-sub-btn" id="ct-sub-share" hidden>${esc(L.pdfShare)}</button><div id="ct-sub-pdf-instruction" hidden>${esc(L.pdfManual)}</div><button type="button" class="ct-sub-done" id="ct-sub-done">${esc(L.back)}</button></div></div></div>`;
+}
 function renderMeasurements(){const hw=$('#cts-height-wrap',dialog),ww=$('#cts-weight-wrap',dialog);if(!hw||!ww)return;
- hw.innerHTML=v.heightUnit==='cm'?input('height','number','min="120" max="230" step=".1" inputmode="decimal" required'):`${input('feet','number','min="3" max="8" inputmode="numeric" aria-label="feet" required')}${input('inches','number','min="0" max="11" inputmode="numeric" aria-label="inches" required')}`;
+ const ftLabel=lang()==='ar'?'قدم':'Feet',inLabel=lang()==='ar'?'بوصة':'Inches';
+ hw.innerHTML=v.heightUnit==='cm'?input('height','number','min="120" max="230" step=".1" inputmode="decimal" required'):`${input('feet','number',`min="3" max="8" inputmode="numeric" aria-label="${ftLabel}" required`)}${input('inches','number',`min="0" max="11" inputmode="numeric" aria-label="${inLabel}" required`)}`;
  ww.innerHTML=input('weight','number',`min="${v.weightUnit==='kg'?30:66}" max="${v.weightUnit==='kg'?250:551}" step=".1" inputmode="decimal" required`);
- const cm=v.heightCm;
- if(Number.isFinite(cm)){
-  if(v.heightUnit==='cm')$('#cts-height',dialog).value=String(Math.round(cm*10)/10);
-  else{let inches=Math.round(cm/2.54);$('#cts-feet',dialog).value=Math.floor(inches/12);$('#cts-inches',dialog).value=inches%12;}
+ if(Number.isFinite(v.heightCm)){
+  if(v.heightUnit==='cm')$('#cts-height',dialog).value=String(Math.round(v.heightCm*10)/10);
+  else{const n=Math.round(v.heightCm/2.54);$('#cts-feet',dialog).value=Math.floor(n/12);$('#cts-inches',dialog).value=n%12;}
  }
  if(Number.isFinite(v.weightKg))$('#cts-weight',dialog).value=String(Math.round((v.weightUnit==='kg'?v.weightKg:v.weightKg*2.2046226218)*10)/10);
+ heightEditedInFeet=false;
  for(const btn of dialog.querySelectorAll('[data-unit]'))btn.setAttribute('aria-pressed',String(v[btn.dataset.unit==='height'?'heightUnit':'weightUnit']===btn.dataset.set));
 }
-function syncPlan(){if(!dialog)return;$('#ct-sub-summary-text',dialog).textContent=planSummary();$('#ct-sub-months',dialog).value=v.months;$('#ct-sub-frequency',dialog).value=v.frequency;}
+function syncPlan(){if(!dialog)return;$('#ct-sub-summary-text',dialog).textContent=planSummary();}
 function saveCurrent(){if(!dialog)return;
- const q=id=>$('#cts-'+id,dialog);const nm=q('name');if(nm)v.name=nm.value;const ph=q('phone');if(ph)v.phone=ph.value;const ct=q('country');if(ct)v.country=ct.value;const dial=q('otherDial');if(dial)v.otherDial=dial.value;
- if(v.heightUnit==='cm'){const h=q('height');if(h?.value)v.heightCm=Number(h.value);}else{const ft=q('feet'),ins=q('inches');if(ft?.value&&ins?.value!=='')v.heightCm=Number(ft.value)*30.48+Number(ins.value)*2.54;}
+ const q=id=>$('#cts-'+id,dialog),nm=q('name'),ph=q('phone'),ct=q('country'),dial=q('otherDial');
+ if(nm)v.name=nm.value;if(ph)v.phone=ph.value;if(ct)v.country=ct.value;if(dial)v.otherDial=dial.value;
+ if(v.heightUnit==='cm'){const h=q('height');if(h?.value)v.heightCm=Number(h.value);}
+ else if(heightEditedInFeet){const ft=q('feet'),ins=q('inches');if(ft?.value&&ins?.value!=='')v.heightCm=Number(ft.value)*30.48+Number(ins.value)*2.54;}
  const wt=q('weight');if(wt?.value)v.weightKg=v.weightUnit==='kg'?Number(wt.value):Number(wt.value)/2.2046226218;
  for(const id of ['age','injuries'])if(q(id))v[id]=q(id).value;
+ for(const id of ['goal','experience','place','gender','contactTime']){const c=q(id);if(c)v[id]=c.value;}
  v.consent=!!q('consent')?.checked;saveDraft();
 }
-function restoreInputs(){for(const id of ['name','phone','age','injuries']){const el=$('#cts-'+id,dialog);if(el)el.value=v[id]||'';}const dial=$('#cts-otherDial',dialog);if(dial){dial.value=v.otherDial||'';dial.hidden=v.country!=='other';}renderMeasurements();}
+function restoreInputs(){for(const id of ['name','phone','age','injuries','goal','experience','place','gender','contactTime']){const el=$('#cts-'+id,dialog);if(el)el.value=v[id]||'';}const dial=$('#cts-otherDial',dialog);if(dial){dial.value=v.otherDial||'';dial.hidden=v.country!=='other';}renderMeasurements();}
 function e164(){const c=PHONE_COUNTRIES.find(x=>x[0]===v.country);let x=v.phone.replace(/[^0-9]/g,'');if(c?.[2]&&x.startsWith(c[2])&&x.length>(v.country==='eg'?10:9))x=x.slice(c[2].length);if(x[0]==='0')x=x.slice(1);if(v.country==='other'){const dial=v.otherDial.replace(/[^0-9]/g,'');return /^[1-9][0-9]{0,3}$/.test(dial)&&/^[0-9]{6,12}$/.test(x)?'+'+dial+x:null;}if(v.country==='eg')return /^1[0125][0-9]{8}$/.test(x)?'+20'+x:null;if(v.country==='sa')return /^5[0-9]{8}$/.test(x)?'+966'+x:null;return c?.[2]&&/^[0-9]{6,12}$/.test(x)?'+'+c[2]+x:null;}
 function errorFor(id){if(id==='name')return v.name.trim().length>=2&&v.name.trim().length<=80?'':'nameError';if(id==='phone')return e164()?'':'phoneError';if(id==='height')return v.heightCm>=120&&v.heightCm<=230?'':'heightError';if(id==='weight')return v.weightKg>=30&&v.weightKg<=250?'':'weightError';if(id==='consent')return v.consent?'':'consentError';if(id==='inbody'&&file&&(!file.valid||file.size>10*1024*1024))return 'fileError';return '';}
 function markError(id){const place=$('#cts-err-'+id,dialog);if(!place)return true;const code=errorFor(id);place.textContent=code?words()[code]:'';const field=$('#cts-'+id,dialog);if(field)field.setAttribute('aria-invalid',String(!!code));return !code;}
@@ -1268,56 +1354,119 @@ async function onFileChanged(e){const chosen=e.target.files?.[0];file=null;if(!c
  const sizeOkay=chosen.size<=10*1024*1024;let magic='';try{magic=String.fromCharCode(...new Uint8Array(await chosen.slice(0,4).arrayBuffer()));}catch{}
  file={name:chosen.name,size:chosen.size,original:chosen,valid:sizeOkay&&magic==='%PDF'};
  updateFile();markError('inbody');}
-function updateFile(){const label=$('#cts-file-label',dialog),remove=$('#cts-file-remove',dialog);if(!label)return;label.textContent=file?`${file.name} · ${(file.size/1048576).toFixed(2)} MB`:words().file;remove.hidden=!file;}
+function updateFile(){const label=$('#cts-file-label',dialog),remove=$('#cts-file-remove',dialog);if(!label)return;label.textContent=file?`${file.name} · ${file.size<1048576?Math.ceil(file.size/1024)+' KB':(file.size/1048576).toFixed(2)+' MB'}`:words().file;remove.hidden=!file;}
 function setPlan(months,frequency){if(!MONTHS.includes(months)||!availableWeeks().includes(frequency))return;v.months=months;v.frequency=frequency;state.frequency=frequency;state.months=months;renderFrequency();renderPlans(false);setMonths(months,false);syncPlan();saveDraft();}
 function modalWidth(){return Math.max(280,window.visualViewport?.width||innerWidth);}
-function setViewport(){if(!dialog?.open)return;const vh=window.visualViewport?.height||innerHeight;panel.style.maxHeight=innerWidth<768?`min(92dvh,${Math.floor(vh-8)}px)`:`min(88dvh,${Math.floor(vh-20)}px)`;}
-function lock(){scrollSaved=window.scrollY;overflowSaved=document.documentElement.style.overflow;gutterSaved=document.documentElement.style.scrollbarGutter;document.documentElement.style.overflow='hidden';document.documentElement.style.scrollbarGutter='stable';}
-function unlock(){document.documentElement.style.overflow=overflowSaved;document.documentElement.style.scrollbarGutter=gutterSaved;const b=document.documentElement.style.scrollBehavior;document.documentElement.style.scrollBehavior='auto';window.scrollTo({top:scrollSaved,behavior:'instant'});requestAnimationFrame(()=>{document.documentElement.style.scrollBehavior=b;});}
+function setViewport(){if(!dialog?.open)return;
+ const vv=window.visualViewport;
+ dialog.style.setProperty('--sheet-vvh',(vv?.height||innerHeight)+'px');
+ dialog.style.setProperty('--sheet-vvtop',(vv?.offsetTop||0)+'px');
+ dialog.style.setProperty('--sheet-vvleft',(vv?.offsetLeft||0)+'px');
+ dialog.style.setProperty('--sheet-vvw',(vv?.width||innerWidth)+'px');
+ keyboardActive=!!(vv&&vv.height<innerHeight-120);
+ dialog.classList.toggle('ct-sub-keyboard',keyboardActive);
+ if(keyboardActive)queueFocusedVisibility();
+}
+function lock(){scrollSaved=window.scrollY;overflowSaved=document.documentElement.style.overflow;gutterSaved=document.documentElement.style.scrollbarGutter;
+ const b=document.body.style;bodyStyles={position:b.position,top:b.top,left:b.left,right:b.right,width:b.width};
+ document.documentElement.style.overflow='hidden';document.documentElement.style.scrollbarGutter='stable';
+ b.position='fixed';b.top=`-${scrollSaved}px`;b.left='0';b.right='0';b.width='100%';
+}
+function unlock(){const b=document.body.style;
+ if(bodyStyles){for(const key of Object.keys(bodyStyles))b[key]=bodyStyles[key];bodyStyles=null;}
+ document.documentElement.style.overflow=overflowSaved;document.documentElement.style.scrollbarGutter=gutterSaved;
+ const prior=document.documentElement.style.scrollBehavior;document.documentElement.style.scrollBehavior='auto';
+ window.scrollTo({top:scrollSaved,behavior:'instant'});
+ requestAnimationFrame(()=>{document.documentElement.style.scrollBehavior=prior;});
+}
 function dirty(){return !!(v.name.trim()||v.phone.trim()||v.heightCm||v.weightKg||file||v.consent||v.goal||v.experience||v.place);}
-function close(force=false){if(!dialog.open)return;if(!force&&dirty()&&$('#ct-sub-success',dialog).hidden&&!window.confirm(lang()==='ar'?'تقفل الفورم؟ بياناتك المكتوبة هتفضل محفوظة في نفس التبويب.':'Close the form? Your draft will remain in this tab.'))return;dialog.close();unlock();safeFocus(from?.isConnected?from:$('#purchaseCta'));}
+function close(force=false,fromPop=false){if(!dialog?.open)return false;
+ const wasSuccess=!$('#ct-sub-success',dialog).hidden;
+ if(!force&&dirty()&&!wasSuccess&&!window.confirm(lang()==='ar'?'تقفل الفورم؟ بياناتك المكتوبة هتفضل محفوظة في نفس التبويب.':'Close the form? Your draft will remain in this tab.')){
+  if(fromPop){history.pushState({__cptSheetV2:true},'',location.href);historyEntry=true;}
+  return false;
+ }
+ if(wasSuccess){try{sessionStorage.removeItem(KEY);}catch{};const selection={months:v.months,frequency:v.frequency};Object.assign(v,{name:'',country:'eg',otherDial:'',phone:'',heightCm:null,heightUnit:'cm',weightKg:null,weightUnit:'kg',goal:'',experience:'',place:'',age:'',gender:'',injuries:'',contactTime:'',consent:false,...selection});file=null;waHref='';}
+ clearTimeout(focusTimer);dialog.close();unlock();safeFocus(from?.isConnected&&from?.getClientRects().length?from:$('#menuToggle')||$('#purchaseCta'));
+ if(historyEntry&&!fromPop){historyEntry=false;ignoreNextPop=true;history.back();}else{historyEntry=false;}
+ return true;
+}
 function safeFocus(el){try{el?.focus({preventScroll:true})}catch{}}
-function buildMessage(){const L=words(),price=getPlanPrice(),phone=e164(),inches=Math.round(v.heightCm/2.54),feet=Math.floor(inches/12),rem=inches%12,kg=Math.round(v.weightKg*10)/10,lb=Math.round(v.weightKg*2.2046226218),plan=L.monthsMap[v.months],money=lang()==='ar'?`${fmt(price)} ج.م`:`EGP ${fmt(price)}`;const lines=lang()==='ar'?['طلب اشتراك جديد',`الباقة: ${plan} · ${v.frequency} حصص/أسبوع · ${money}`,`الاسم: ${v.name.trim()}`,`الموبايل: ${phone}`,`الطول: ${Math.round(v.heightCm)} سم (${feet} قدم ${rem} بوصة)`,`الوزن: ${kg} كجم (${lb} رطل)`]:['New subscription request',`Plan: ${plan} · ${v.frequency}/week · ${money}`,`Name: ${v.name.trim()}`,`Phone: ${phone}`,`Height: ${Math.round(v.heightCm)} cm (${feet} ft ${rem} in)`,`Weight: ${kg} kg (${lb} lb)`];
- for(const id of ['goal','experience','place','gender','contactTime'])if(v[id]!=='')lines.push(`${L[id]}: ${L[optionDefs[id]][Number(v[id])]}`);
- if(v.age)lines.push(`${L.age}: ${v.age}`);if(v.injuries)lines.push(`${L.injuries}: ${v.injuries.trim().slice(0,200)}`);
- lines.push(lang()==='ar'?(file?'InBody: هبعت ملف PDF في نفس المحادثة':'InBody: مفيش ملف'):(file?'InBody: PDF will be attached in this chat':'InBody: none'));
- return lines.join('\n');}
-function resetView(){form.hidden=false;success.hidden=true;$('#ct-sub-success-title',dialog).textContent='';}
+function buildMessage(){const L=words(),price=getPlanPrice(),phone=e164(),inches=Math.round(v.heightCm/2.54),feet=Math.floor(inches/12),rem=inches%12,kg=Math.round(v.weightKg*10)/10,lb=Math.round(v.weightKg*2.2046226218),money=lang()==='ar'?`${fmt(price)} ج.م`:`EGP ${fmt(price)}`,labels=COACH_LABELS[lang()];
+ const lines=lang()==='ar'?['طلب اشتراك جديد',`الباقة: ${L.monthsMap[v.months]} · ${v.frequency} حصص/أسبوع · ${money}`,`الاسم: ${v.name.trim()}`,`الموبايل: ${phone}`,`الطول: ${Math.round(v.heightCm)} سم (${feet} قدم ${rem} بوصة)`,`الوزن: ${kg} كجم (${lb} رطل)`]:['New subscription request',`Plan: ${planEng(v.months)} · ${v.frequency} sessions/week · ${money}`,`Name: ${v.name.trim()}`,`Phone: ${phone}`,`Height: ${Math.round(v.heightCm)} cm (${feet} ft ${rem} in)`,`Weight: ${kg} kg (${lb} lb)`];
+ for(const id of ['goal','experience','place'])if(v[id]!==''&&optionDefs[id])lines.push(`${labels[id]}: ${L[optionDefs[id]][Number(v[id])]}`);
+ for(const id of ['age','gender','injuries','contactTime']){
+  let val=v[id];if(!val)continue;
+  if(optionDefs[id])val=L[optionDefs[id]][Number(val)];else val=String(val).trim().slice(0,200);
+  if(val)lines.push(`${labels[id]}: ${val}`);
+ }
+ if(file)lines.push(lang()==='ar'?'InBody: هبعت ملف PDF في نفس المحادثة':"InBody: I'll send the PDF in this chat");
+ return lines.join('\n');
+}
+function resetView(){form.hidden=false;success.hidden=true;$('#ct-sub-success-title',dialog).textContent='';setStep(1);}
 function showSuccess(){form.hidden=true;success.hidden=false;$('#ct-sub-success-title',dialog).textContent=words().success.replace('{name}',v.name.trim());$('#ct-sub-open-wa',dialog).href=waHref;$('#ct-sub-pdf-instruction',dialog).hidden=!file;$('#ct-sub-share',dialog).hidden=!file||!(navigator.canShare?.({files:[file.original]})&&navigator.share);safeFocus($('#ct-sub-success-title',dialog));}
-function onSubmit(e){e.preventDefault();const btn=$('.ct-sub-submit',dialog);const honeypot=$('[name="address2"]',form);if(honeypot?.value||performance.now()-openedAt<3000){$('#cts-err-consent',dialog).textContent=words().wait;return;}const first=checkForm();if(first){const place=$('#cts-'+first,dialog)||$(`[data-field="${first}"]`,dialog);place?.scrollIntoView({behavior:'auto',block:'center'});safeFocus(place);return;}
+function onSubmit(e){e.preventDefault();const btn=$('.ct-sub-submit',dialog),honeypot=$('[name="address2"]',form);if(honeypot?.value||performance.now()-openedAt<3000){$('#cts-err-consent',dialog).textContent=words().wait;return;}
+ const first=checkForm();if(first){if(shortMode&&['name','phone','height','weight'].includes(first))setStep(1);const el=$('#cts-'+first,dialog)||$(`[data-field="${first}"]`,dialog);queueFocusedVisibility(el);safeFocus(el);return;}
  btn.disabled=true;waHref=`https://wa.me/${WA}?text=${encodeURIComponent(buildMessage())}`;
- // This is user-initiated; open the prepared link, never claim transmission succeeded.
  try{window.open(waHref,'_blank','noopener,noreferrer');}catch{}
- btn.disabled=false;showSuccess();}
+ btn.disabled=false;showSuccess();
+}
 function formClick(e){const u=e.target.closest('[data-unit]');if(u){saveCurrent();v[u.dataset.unit==='height'?'heightUnit':'weightUnit']=u.dataset.set;renderMeasurements();saveDraft();return;}
  const chip=e.target.closest('[data-chip]');if(chip){const id=chip.dataset.chip;v[id]=v[id]===chip.dataset.choice?'':chip.dataset.choice;for(const b of dialog.querySelectorAll(`[data-chip="${id}"]`))b.setAttribute('aria-pressed',String(v[id]===b.dataset.choice));saveDraft();return;}
  if(e.target.closest('#cts-file-remove')){file=null;$('#cts-inbody',dialog).value='';updateFile();markError('inbody');return;}
  if(e.target.closest('#ct-sub-close')){close();return;}
  if(e.target.closest('#ct-sub-done')){close(true);return;}
- if(e.target.closest('#ct-sub-share')&&file){if(navigator.canShare?.({files:[file.original]})){navigator.share({files:[file.original],title:'InBody PDF'}).catch(()=>{});}return;}
+ if(e.target.closest('#ct-sub-next')){saveCurrent();let first=null;for(const id of ['name','phone','height','weight'])if(!markError(id)&&!first)first=id;if(first){const el=$('#cts-'+first,dialog);safeFocus(el);queueFocusedVisibility(el);}else setStep(2);return;}
+ if(e.target.closest('#ct-sub-back')){setStep(1);return;}
+ if(e.target.closest('#ct-sub-change-plan')){if(close())requestAnimationFrame(()=>document.querySelector('#plans')?.scrollIntoView({block:'start',behavior:'smooth'}));return;}
+ if(e.target.closest('#ct-sub-share')&&file){if(navigator.canShare?.({files:[file.original]}))navigator.share({files:[file.original],title:'InBody PDF'}).catch(()=>{});return;}
 }
-function formChange(e){if(e.target.id==='ct-sub-months'||e.target.id==='ct-sub-frequency'){setPlan(Number($('#ct-sub-months',dialog).value),Number($('#ct-sub-frequency',dialog).value));return;}
- saveCurrent();if(e.target.id==='cts-country'){const dial=$('#cts-otherDial',dialog);if(dial){dial.hidden=v.country!=='other';if(!dial.hidden)dial.focus({preventScroll:true});}}const id=e.target.id?.replace(/^cts-/,'');if(id)markError(id);}
-function relocalize(){if(!dialog?.open)return;saveCurrent();const active=document.activeElement?.id;const wasOpen=$('.ct-sub-extra',dialog)?.open;
+function formChange(e){saveCurrent();if(e.target.id==='cts-country'){const dial=$('#cts-otherDial',dialog);if(dial){dial.hidden=v.country!=='other';if(!dial.hidden)dial.focus({preventScroll:true});}}
+ const id=e.target.id?.replace(/^cts-/,'');if(id)markError(id);
+}
+function relocalize(){if(!dialog?.open)return;saveCurrent();const active=document.activeElement?.id;const wasOpen=$('.ct-sub-extra',dialog)?.open;const oldScroll=$('#ct-sub-body',dialog)?.scrollTop||0;const wasSuccess=!success.hidden;
  panel.outerHTML=getMarkup();panel=$('.ct-sub-panel',dialog);form=$('#ct-sub-form',dialog);success=$('#ct-sub-success',dialog);dialog.classList.toggle('is-ar',lang()==='ar');
- restoreInputs();syncPlan();updateFile();if(wasOpen)$('.ct-sub-extra',dialog).open=true;if(active)safeFocus($('#'+active,dialog));setViewport();}
+ restoreInputs();syncPlan();updateFile();if(wasOpen)$('.ct-sub-extra',dialog).open=true;setStep(step);$('#ct-sub-body',dialog).scrollTop=oldScroll;
+ if(wasSuccess)showSuccess();if(active)safeFocus($('#'+active,dialog));setViewport();
+}
 function open(trigger){if(dialog.open||document.querySelector('.ct-cinema-dialog[open]'))return;
- from=trigger;fromState();openedAt=performance.now();saveDraft();panel.outerHTML=getMarkup();panel=$('.ct-sub-panel',dialog);form=$('#ct-sub-form',dialog);success=$('#ct-sub-success',dialog);dialog.classList.toggle('is-ar',lang()==='ar');restoreInputs();syncPlan();updateFile();
- dialog.showModal();lock();setViewport();safeFocus($('#ct-sub-title',dialog));}
+ from=trigger?.closest?.('#mobileNav')?$('#menuToggle'):trigger;fromState();openedAt=performance.now();shortMode=innerWidth<768&&innerHeight<=760;step=1;
+ panel.outerHTML=getMarkup();panel=$('.ct-sub-panel',dialog);form=$('#ct-sub-form',dialog);success=$('#ct-sub-success',dialog);dialog.classList.toggle('is-ar',lang()==='ar');restoreInputs();syncPlan();updateFile();setStep(1);
+ try{dialog.showModal();}catch{return;}lock();setViewport();safeFocus($('#ct-sub-title',dialog));
+ if(!historyEntry){history.pushState({__cptSheetV2:true},'',location.href);historyEntry=true;}
+}
+function setStep(n){step=n;dialog.dataset.step=String(n);dialog.classList.toggle('ct-sub-short',shortMode);
+ const next=$('#ct-sub-next',dialog),back=$('#ct-sub-back',dialog),send=$('.ct-sub-submit',dialog),progress=$('#ct-sub-progress',dialog);
+ next.hidden=!shortMode||step!==1;back.hidden=!shortMode||step!==2;send.hidden=shortMode&&step!==2;
+ if(progress)progress.textContent=`${step} / 2`;
+ const body=$('#ct-sub-body',dialog);if(body)body.scrollTop=0;
+}
+function queueFocusedVisibility(el){clearTimeout(focusTimer);focusTimer=setTimeout(()=>{
+ if(!dialog?.open)return;const target=el||document.activeElement,scroller=$('#ct-sub-body',dialog);
+ if(!target?.closest?.('#ct-sub-body')||!scroller)return;
+ const r=target.getBoundingClientRect(),v=scroller.getBoundingClientRect();
+ if(r.bottom>v.bottom-16)scroller.scrollTop+=r.bottom-v.bottom+16;
+ if(r.top<v.top+16)scroller.scrollTop-=v.top+16-r.top;
+},180);}
+function onSheetPop(){if(ignoreNextPop){ignoreNextPop=false;return;}
+ if(dialog?.open&&historyEntry)close(false,true);
+}
 function init(){dialog=document.createElement('dialog');dialog.className='ct-sub-dialog';dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-labelledby','ct-sub-title');dialog.innerHTML=getMarkup();document.body.appendChild(dialog);panel=$('.ct-sub-panel',dialog);form=$('#ct-sub-form',dialog);success=$('#ct-sub-success',dialog);restoreDraft();
  document.addEventListener('click',e=>{const trigger=e.target.closest('a.nav-join,a.mobile-join,#purchaseCta');if(trigger&&!dialog.open){e.preventDefault();open(trigger);}});
  dialog.addEventListener('click',formClick);dialog.addEventListener('change',formChange);
- dialog.addEventListener('input',e=>{if(e.target.closest('input,textarea')&&!internalUpdating)saveCurrent();});
+ dialog.addEventListener('input',e=>{if(e.target.id==='cts-feet'||e.target.id==='cts-inches')heightEditedInFeet=true;if(e.target.closest('input,textarea,select')&&!internalUpdating)saveCurrent();});
  dialog.addEventListener('focusout',e=>{const id=e.target.id?.replace(/^cts-/,'');if(id)markError(id);});
+ dialog.addEventListener('focusin',e=>{if(e.target.matches('input,select,textarea'))queueFocusedVisibility(e.target);});
  dialog.addEventListener('submit',onSubmit);dialog.addEventListener('change',e=>{if(e.target.id==='cts-inbody')onFileChanged(e);});
  dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
  dialog.addEventListener('click',e=>{if(e.target===dialog)close();});
- dialog.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const nodes=[...dialog.querySelectorAll('button:not([disabled]):not([hidden]),input:not([disabled]):not([hidden]),select:not([disabled]),textarea:not([disabled]),summary,a[href]')].filter(el=>el.getClientRects().length);if(!nodes.length)return;const a=nodes[0],z=nodes.at(-1);if(e.shiftKey&&document.activeElement===a){e.preventDefault();safeFocus(z);}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();safeFocus(a);}});
+ dialog.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const nodes=[...dialog.querySelectorAll('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,a[href]')].filter(el=>!el.hidden&&el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden');if(!nodes.length)return;const a=nodes[0],z=nodes.at(-1);if(e.shiftKey&&document.activeElement===a){e.preventDefault();safeFocus(z);}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();safeFocus(a);}});
  dialog.addEventListener('pointerdown',e=>{if(e.target.classList.contains('ct-sub-handle'))beginSwipe={y:e.clientY,time:performance.now()};});
  dialog.addEventListener('pointerup',e=>{if(beginSwipe&&e.clientY-beginSwipe.y>75&&performance.now()-beginSwipe.time<500)close();beginSwipe=null;});
  const mo=new MutationObserver(()=>{if(dialog.open)relocalize();});mo.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
- window.visualViewport?.addEventListener('resize',setViewport);window.addEventListener('resize',setViewport);
- window.CPTSubscribe={open:()=>open($('#purchaseCta')),get mode(){return SUBMIT_MODE},get plan(){return {months:v.months,frequency:v.frequency,price:getPlanPrice()}},get message(){return buildMessage()},get link(){return waHref},get dialog(){return dialog},get config(){return FIELD_CONFIG.map(x=>({...x}))}};
+ window.visualViewport?.addEventListener('resize',setViewport);window.visualViewport?.addEventListener('scroll',setViewport);window.addEventListener('resize',setViewport);
+ window.addEventListener('popstate',onSheetPop);
+ window.CPTSubscribe={open:()=>open($('#purchaseCta')),get mode(){return SUBMIT_MODE},get plan(){return {months:v.months,frequency:v.frequency,price:getPlanPrice()}},get message(){return buildMessage()},get link(){return waHref},get dialog(){return dialog},get config(){return FIELD_CONFIG.map(x=>({...x}))},get step(){return step}};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
